@@ -1,0 +1,152 @@
+{
+  "header": {
+    "greeting": "¡Hola, {name}!",
+    "downloadCv": "Descargar CV",
+    "notifications": "Notificaciones",
+    "settings": "Configuración"
+  },
+  "sidebar": {
+    "brand": "Portfolio de Datos",
+    "home": "Inicio",
+    "analytics": "Analítica",
+    "dataEngineer": "Ingeniero de Datos",
+    "dashboards": "Tableros",
+    "reports": "Reportes",
+    "metrics": "Métricas",
+    "pipelines": "Pipelines",
+    "etlJobs": "Trabajos ETL",
+    "dataModels": "Modelos de Datos"
+  },
+  "home": {
+    "title": "Ingeniero de Datos y Analista",
+    "subtitle": "Transformando datos en insights accionables",
+    "bio": "Apasionado por construir pipelines de datos robustos y crear visualizaciones significativas que impulsen decisiones de negocio.",
+    "skills": "Habilidades",
+    "quickStats": "Estadísticas Rápidas",
+    "projectsCompleted": "Proyectos Completados",
+    "dataProcessed": "Datos Procesados",
+    "clientsServed": "Clientes Atendidos",
+    "yearsExperience": "Años de Experiencia"
+  },
+  "services": {
+    "title": "En Qué Puedo Ayudarte",
+    "subtitle": "Soluciones de datos integrales adaptadas a las necesidades de tu negocio",
+    "dataPipelines": {
+      "title": "Desarrollo de Pipelines de Datos",
+      "description": "Construye pipelines de datos robustos y escalables que procesen y transformen eficientemente tus datos desde la fuente hasta el destino."
+    },
+    "dashboardDesign": {
+      "title": "Diseño de Tableros",
+      "description": "Crea tableros interactivos y fáciles de usar que proporcionen insights en tiempo real sobre las métricas de tu negocio."
+    },
+    "etlAutomation": {
+      "title": "Automatización ETL",
+      "description": "Automatiza tus procesos de Extracción, Transformación y Carga para asegurar un procesamiento de datos consistente y confiable."
+    },
+    "dataVisualization": {
+      "title": "Visualización de Datos",
+      "description": "Transforma conjuntos de datos complejos en visualizaciones claras y accionables que cuenten la historia de tus datos."
+    },
+    "cloudMigration": {
+      "title": "Migración a la Nube",
+      "description": "Migra sin problemas tu infraestructura de datos a plataformas en la nube para mejor escalabilidad y eficiencia de costos."
+    },
+    "dataQuality": {
+      "title": "Aseguramiento de Calidad de Datos",
+      "description": "Implementa verificaciones integrales de calidad de datos y procesos de validación para asegurar precisión y confiabilidad de los datos."
+    },
+    "cta": "¿Listo para transformar tus datos? ¡Hablemos de tu proyecto!"
+  },
+  "contact": {
+    "title": "Trabajemos Juntos",
+    "subtitle": "¿Tienes un proyecto en mente? Me encantaría escucharlo. Envíame un mensaje y hablemos sobre cómo podemos hacer realidad tu visión de datos.",
+    "form": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "message": "Mensaje",
+      "submit": "Enviar Mensaje",
+      "nameRequired": "El nombre es requerido",
+      "emailRequired": "El correo electrónico es requerido",
+      "emailInvalid": "Por favor ingresa un correo electrónico válido",
+      "messageRequired": "El mensaje es requerido"
+    },
+    "directContact": "O contáctame directamente:",
+    "email": "Correo",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "schedule": {
+    "title": "Programar una Reunión",
+    "subtitle": "Reserva un tiempo para discutir tu proyecto u oportunidad.",
+    "loading": "Cargando calendario...",
+    "error": "No se puede cargar el calendario. Por favor contáctame directamente.",
+    "fallback": "Si el calendario no carga, por favor contáctame directamente por correo electrónico o LinkedIn."
+  },
+  "analytics": {
+    "title": "Tablero de Analítica",
+    "subtitle": "Monitorea y analiza las métricas de rendimiento de tus datos",
+    "totalUsers": "Usuarios Totales",
+    "activeUsers": "Usuarios Activos",
+    "conversionRate": "Tasa de Conversión",
+    "revenue": "Ingresos",
+    "dataQuality": "Calidad de Datos",
+    "processingTime": "Tiempo de Procesamiento",
+    "errorRate": "Tasa de Error",
+    "uptime": "Tiempo de Actividad"
+  },
+  "dataEngineer": {
+    "pipelines": {
+      "title": "Pipelines de Datos",
+      "subtitle": "Monitorea y gestiona tus pipelines de procesamiento de datos y flujos de trabajo",
+      "newPipeline": "Nuevo Pipeline",
+      "activePipelines": "Pipelines Activos",
+      "successRate": "Tasa de Éxito",
+      "dataVolume": "Volumen de Datos",
+      "failedRuns": "Ejecuciones Fallidas",
+      "recentRuns": "Ejecuciones Recientes de Pipelines",
+      "recentRunsSubtitle": "Monitorea las últimas ejecuciones de pipelines y su estado"
+    },
+    "etlJobs": {
+      "title": "Trabajos ETL",
+      "subtitle": "Gestiona tus procesos de Extracción, Transformación y Carga y flujos de trabajo"
+    },
+    "dataModels": {
+      "title": "Modelos de Datos",
+      "subtitle": "Diseña y gestiona tus modelos de datos y esquemas"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "view": "Ver",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "refresh": "Actualizar",
+    "export": "Exportar",
+    "import": "Importar",
+    "download": "Descargar",
+    "upload": "Subir",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "OK",
+    "confirm": "Confirmar"
+  },
+  "notFound": {
+    "title": "404 - Página No Encontrada",
+    "message": "Lo siento, la página que buscas no existe.",
+    "description": "La página solicitada no pudo ser encontrada. Podría haber sido movida, eliminada, o ingresaste una URL incorrecta.",
+    "goHome": "Ir al Inicio",
+    "goBack": "Volver"
+  }
+}
