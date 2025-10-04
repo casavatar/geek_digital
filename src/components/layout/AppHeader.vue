@@ -136,7 +136,6 @@
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PersonalInfo } from '@/types'
-import { useUiStore } from '@/stores/ui'
 import { useTheme } from '@/composables/useTheme'
 import { getMainNavItems } from '@/constants/navItems'
 import Icon from '@/components/ui/Icon.vue'
@@ -145,10 +144,9 @@ interface Props {
   personalInfo: PersonalInfo
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const route = useRoute()
-const uiStore = useUiStore()
 const { isDarkMode, toggleDarkMode } = useTheme()
 const isMobileMenuOpen = ref(false)
 

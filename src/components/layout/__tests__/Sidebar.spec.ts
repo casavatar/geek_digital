@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
-import Sidebar from '../Sidebar.vue'
+import Sidebar from '../AppSidebar.vue'
 
 // Mock the UI components and stores
 vi.mock('@/components/ui', () => ({

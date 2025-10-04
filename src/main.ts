@@ -6,6 +6,10 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import { i18n } from './plugins/i18n'
+import { initThemeOnLoad } from './composables/useTheme'
+
+// Initialize theme immediately to prevent flash of wrong theme
+initThemeOnLoad()
 
 const app = createApp(App)
 

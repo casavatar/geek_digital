@@ -46,13 +46,8 @@ vi.mock('@/composables/useTheme', () => ({
   useTheme: vi.fn()
 }))
 
-vi.mock('@/stores/ui', () => ({
-  useUiStore: () => ({
-    isMobileSidebarOpen: false,
-    openMobileSidebar: vi.fn(),
-    closeMobileSidebar: vi.fn()
-  })
-}))
+import { useUiStore } from '@/stores/ui'
+vi.mock('@/stores/ui')
 
 // Create a mock router
 const router = createRouter({
@@ -69,8 +64,13 @@ const router = createRouter({
 
 describe('DashboardLayout', () => {
   beforeEach(async () => {
-    await router.push('/')
-  })
+    await router.push('/');
+    vi.mocked(useUiStore).mockReturnValue({
+      isMobileSidebarOpen: false,
+      openMobileSidebar: vi.fn(),
+      closeMobileSidebar: vi.fn(),
+    });
+  });
 
   const createWrapper = () => {
     return mount(DashboardLayout, {
@@ -188,15 +188,38 @@ describe('DashboardLayout', () => {
     expect(main.exists()).toBe(true)
   })
 
-  it('handles mobile sidebar state', () => {
-    const wrapper = createWrapper()
-    
-    // The mobile sidebar overlay should be present but hidden by default
-    // Note: This element only exists when isMobileSidebarOpen is true
-    // Since it's false by default, we check that the structure exists
-    const mobileOverlay = wrapper.find('.fixed.inset-0.z-40.lg\\:hidden')
-    // The overlay is conditionally rendered, so it may not exist when closed
-    expect(true).toBe(true) // Placeholder - mobile sidebar logic is complex
+  describe('Mobile Sidebar', () => {
+    it('is hidden by default', () => {
+      const wrapper = createWrapper()
+      const mobileOverlay = wrapper.find('.fixed.inset-0.z-40.lg\:hidden')
+      expect(mobileOverlay.exists()).toBe(false)
+    })
+
+    it('renders with liquidglass effect when open', () => {
+      // Mock the uiStore to have the sidebar open for this test
+      vi.mocked(useUiStore).mockReturnValue({
+        isMobileSidebarOpen: true,
+        openMobileSidebar: vi.fn(),
+        closeMobileSidebar: vi.fn()
+      })
+
+      const wrapper = createWrapper()
+
+      // Check for the backdrop with its blur effect
+      const backdrop = wrapper.find('.fixed.inset-0.bg-gray-600\/75.backdrop-blur-sm')
+      expect(backdrop.exists()).toBe(true)
+
+      // Check for the sidebar panel using its accessibility attributes
+      const sidebarPanel = wrapper.find('[role="dialog"][aria-label="Mobile navigation menu"]')
+      expect(sidebarPanel.exists()).toBe(true)
+
+      // Check for the "liquidglass" classes on the panel
+      const panelClasses = sidebarPanel.classes()
+      expect(panelClasses).toContain('bg-white/30')
+      expect(panelClasses).toContain('dark:bg-gray-800/30')
+      expect(panelClasses).toContain('backdrop-blur-xl')
+      expect(panelClasses).toContain('backdrop-saturate-150')
+    })
   })
 
   it('has proper accessibility structure', () => {
