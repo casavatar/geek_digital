@@ -31,3 +31,6 @@ coverage
 
 # Assets folder
 src/assets/
+
+# Context folder
+context/

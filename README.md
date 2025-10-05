@@ -25,7 +25,7 @@ A modern, responsive portfolio website built with Vue 3, TypeScript, and Tailwin
 
 ## Project Structure
 
-```
+```text
 src/
 ├── components/
 │   ├── layout/          # Layout components (Header, Footer)
@@ -46,23 +46,26 @@ src/
 
 ### Installation
 
-1. Clone the repository:
+1.- Clone the repository:
+
 ```bash
 git clone <your-repo-url>
 cd portfolio-website
 ```
 
-2. Install dependencies:
+2.- Install dependencies:
+
 ```bash
 npm install
 ```
 
-3. Start the development server:
+3.- Start the development server:
+
 ```bash
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+4.- Open your browser and navigate to `http://localhost:5173`
 
 ### Available Scripts
 
@@ -85,7 +88,7 @@ const personalInfo = ref<PersonalInfo>({
   title: 'Your Title',
   avatar: 'path/to/your/avatar.jpg',
   tagline: 'Your tagline here',
-  cvUrl: '/path/to/your/cv.pdf'
+  cvUrl: '/path/to/your/cv.pdf',
 })
 ```
 
@@ -103,8 +106,8 @@ const projects = ref<Project[]>([
     icon: '<svg>...</svg>',
     technologies: ['Vue.js', 'TypeScript'],
     liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/example'
-  }
+    githubUrl: 'https://github.com/example',
+  },
 ])
 ```
 
@@ -120,34 +123,36 @@ The project uses Tailwind CSS with custom configuration. You can:
 
 ### Netlify
 
-1. Build the project:
+1.- Build the project:
+
 ```bash
 npm run build
 ```
 
-2. Deploy the `dist` folder to Netlify
+2.- Deploy the `dist` folder to Netlify
 
 ### Vercel
 
-1. Connect your repository to Vercel
-2. Vercel will automatically detect the Vue project and deploy it
+1.- Connect your repository to Vercel
+2.- Vercel will automatically detect the Vue project and deploy it
 
 ### Manual Deployment
 
-1. Build the project:
+1.- Build the project:
+
 ```bash
 npm run build
 ```
 
-2. Upload the contents of the `dist` folder to your web server
+2.- Upload the contents of the `dist` folder to your web server
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests and linting
-5. Submit a pull request
+1.- Fork the repository
+2.- Create a feature branch
+3.- Make your changes
+4.- Run tests and linting
+5.- Submit a pull request
 
 ## License
 
