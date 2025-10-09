@@ -9,9 +9,11 @@ The `.glass-card` utility class provides a consistent Liquid Glass (Glassmorphis
 ## Available Classes
 
 ### 1. **`.glass-card`** (Default)
+
 The standard glass card with balanced spacing for most use cases.
 
 **Specifications:**
+
 - **Padding**: `py-5 px-6` (1.25rem vertical, 1.5rem horizontal)
 - **Background**: `bg-white/30 dark:bg-gray-800/30`
 - **Backdrop**: `backdrop-blur-xl backdrop-saturate-200`
@@ -21,15 +23,12 @@ The standard glass card with balanced spacing for most use cases.
 - **Transitions**: `transition-all duration-300`
 
 **Usage Example:**
+
 ```vue
 <template>
   <div class="glass-card">
-    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-      Analytics Overview
-    </h3>
-    <p class="text-sm text-gray-600 dark:text-gray-300">
-      Your performance metrics for this month.
-    </p>
+    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Analytics Overview</h3>
+    <p class="text-sm text-gray-600 dark:text-gray-300">Your performance metrics for this month.</p>
   </div>
 </template>
 ```
@@ -37,13 +36,16 @@ The standard glass card with balanced spacing for most use cases.
 ---
 
 ### 2. **`.glass-card-compact`**
+
 A more condensed version for tight layouts or sidebar widgets.
 
 **Specifications:**
+
 - **Padding**: `py-4 px-5` (1rem vertical, 1.25rem horizontal)
 - Inherits all other `.glass-card` properties
 
 **Usage Example:**
+
 ```vue
 <template>
   <div class="glass-card-compact">
@@ -58,19 +60,20 @@ A more condensed version for tight layouts or sidebar widgets.
 ---
 
 ### 3. **`.glass-card-lg`**
+
 Larger card with extra padding for prominent sections or feature highlights.
 
 **Specifications:**
+
 - **Padding**: `py-6 px-8` (1.5rem vertical, 2rem horizontal)
 - Inherits all other `.glass-card` properties
 
 **Usage Example:**
+
 ```vue
 <template>
   <div class="glass-card-lg">
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-      Featured Project
-    </h2>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Featured Project</h2>
     <p class="text-base text-gray-600 dark:text-gray-300 mb-5">
       Full-stack analytics dashboard with real-time data visualization.
     </p>
@@ -84,12 +87,15 @@ Larger card with extra padding for prominent sections or feature highlights.
 ## Design Principles
 
 ### 1. **Consistent Vertical Rhythm**
+
 All glass cards use multiples of `0.25rem` (Tailwind's spacing scale) to maintain vertical harmony:
+
 - Compact: `py-4` (1rem)
 - Default: `py-5` (1.25rem)
 - Large: `py-6` (1.5rem)
 
 ### 2. **Spacing Between Elements**
+
 Use `space-y-5` or `gap-5` for consistent separation between sibling glass cards:
 
 ```vue
@@ -101,9 +107,11 @@ Use `space-y-5` or `gap-5` for consistent separation between sibling glass cards
 ```
 
 ### 3. **Avoid Redundant Padding**
+
 Never nest multiple `py-*` utilities inside a `.glass-card`:
 
 ❌ **Incorrect:**
+
 ```vue
 <div class="glass-card">
   <div class="py-5"> <!-- Redundant padding -->
@@ -113,6 +121,7 @@ Never nest multiple `py-*` utilities inside a `.glass-card`:
 ```
 
 ✅ **Correct:**
+
 ```vue
 <div class="glass-card">
   <div class="space-y-3"> <!-- Use spacing utilities instead -->
@@ -211,6 +220,7 @@ The main layout uses consistent `py-5` spacing:
 To convert existing cards to the glass-card system:
 
 **Before:**
+
 ```vue
 <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border shadow-lg">
   Content
@@ -218,6 +228,7 @@ To convert existing cards to the glass-card system:
 ```
 
 **After:**
+
 ```vue
 <div class="glass-card">
   Content
