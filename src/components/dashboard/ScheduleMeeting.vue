@@ -1,11 +1,11 @@
 <template>
   <div class="dashboard-card p-8 py-6">
     <!-- Section Header -->
-    <div class="text-center mb-12 py-4">
-      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4 py-2 pb-6">
+    <div class="flex flex-col items-center text-center mb-12 py-4 space-y-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
         Schedule a Meeting
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto py-1">
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-4xl px-4 leading-relaxed py-2">
         Book a time to discuss your project, explore collaboration opportunities, or learn more
         about how I can help transform your data operations.
       </p>
@@ -15,28 +15,16 @@
       <!-- Calendly Embed -->
       <div class="lg:col-span-2 py-2">
         <div
-          class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg py-3"
-        >
+          class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg py-3">
           <!-- Calendly Header -->
           <div
-            class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 px-6 py-4 border-b border-gray-200 dark:border-gray-700"
-          >
+            class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
             <div class="flex items-center space-x-3 py-1">
-              <div
-                class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center"
-              >
-                <svg
-                  class="w-6 h-6 text-blue-600 dark:text-blue-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
+              <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
               <div class="py-1">
@@ -51,53 +39,29 @@
           <!-- Calendly Iframe Container -->
           <div class="relative py-2">
             <!-- Loading State -->
-            <div
-              v-if="isLoading"
-              class="flex items-center justify-center h-96 bg-gray-50 dark:bg-gray-800 py-4"
-            >
+            <div v-if="isLoading" class="flex items-center justify-center h-96 bg-gray-50 dark:bg-gray-800 py-4">
               <div class="text-center py-2">
                 <div
-                  class="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4"
-                ></div>
+                  class="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4">
+                </div>
                 <p class="text-gray-600 dark:text-gray-400">Loading calendar...</p>
               </div>
             </div>
 
             <!-- Calendly Iframe -->
-            <iframe
-              v-show="!isLoading && !hasError"
-              ref="calendlyFrame"
-              :src="calendlyUrl"
-              width="100%"
-              height="600"
-              frameborder="0"
-              title="Schedule a meeting with Eduardo Castellanos"
-              class="w-full h-96 lg:h-[600px]"
-              @load="handleIframeLoad"
-              @error="handleIframeError"
-            ></iframe>
+            <iframe v-show="!isLoading && !hasError" ref="calendlyFrame" :src="calendlyUrl" width="100%" height="600"
+              frameborder="0" title="Schedule a meeting with Eduardo Castellanos" class="w-full h-96 lg:h-[600px]"
+              @load="handleIframeLoad" @error="handleIframeError"></iframe>
 
             <!-- Error Fallback -->
-            <div
-              v-if="hasError"
-              class="flex items-center justify-center h-96 bg-gray-50 dark:bg-gray-800 py-4"
-            >
+            <div v-if="hasError" class="flex items-center justify-center h-96 bg-gray-50 dark:bg-gray-800 py-4">
               <div class="text-center max-w-md mx-auto p-6 py-3">
                 <div
-                  class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4 py-1"
-                >
-                  <svg
-                    class="w-8 h-8 text-red-600 dark:text-red-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-                    />
+                  class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4 py-1">
+                  <svg class="w-8 h-8 text-red-600 dark:text-red-400" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                   </svg>
                 </div>
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 py-2">
@@ -107,17 +71,11 @@
                   The scheduling calendar couldn't load. Please use the contact options below to
                   reach out directly.
                 </p>
-                <button
-                  @click="retryLoad"
-                  class="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200"
-                >
+                <button @click="retryLoad"
+                  class="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                    />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
                   <span>Try Again</span>
                 </button>
@@ -128,18 +86,17 @@
       </div>
 
       <!-- Meeting Information & Contact Options -->
-      <div class="space-y-6 py-4">
+      <div class="flex flex-col gap-2 sm:gap-3 lg:gap-4">
         <!-- Meeting Types -->
         <div
-          class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-6 border border-blue-200 dark:border-blue-800 py-3"
-        >
+          class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-6 border border-blue-200 dark:border-blue-800 py-3">
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 py-2">Meeting Types</h3>
           <div class="space-y-4 py-2">
             <div class="flex items-start space-x-3 py-2">
               <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
               <div class="py-1">
-                <h4 class="font-semibold text-gray-900 dark:text-white">Project Consultation</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
+                <h4 class="font-semibold text-gray-900 dark:text-white px-2">Project Consultation</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 px-2">
                   Discuss your data engineering needs and project requirements
                 </p>
               </div>
@@ -147,8 +104,8 @@
             <div class="flex items-start space-x-3 py-2">
               <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
               <div class="py-1">
-                <h4 class="font-semibold text-gray-900 dark:text-white">Technical Review</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
+                <h4 class="font-semibold text-gray-900 dark:text-white px-2">Technical Review</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 px-2">
                   Review your current data infrastructure and optimization opportunities
                 </p>
               </div>
@@ -156,8 +113,8 @@
             <div class="flex items-start space-x-3 py-2">
               <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
               <div class="py-1">
-                <h4 class="font-semibold text-gray-900 dark:text-white">Career Discussion</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
+                <h4 class="font-semibold text-gray-900 dark:text-white px-2">Career Discussion</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 px-2">
                   Explore collaboration opportunities and career possibilities
                 </p>
               </div>
@@ -166,122 +123,46 @@
         </div>
 
         <!-- Meeting Duration & Timezone -->
-        <div
-          class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 py-3"
-        >
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 py-3">
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 py-2">Meeting Details</h3>
           <div class="space-y-4 py-2">
             <div class="flex items-center space-x-3 py-2">
-              <svg
-                class="w-5 h-5 text-blue-600 dark:text-blue-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
+              <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div class="py-1">
-                <p class="font-medium text-gray-900 dark:text-white">Duration</p>
-                <p class="text-sm text-gray-600 dark:text-gray-400">30-60 minutes</p>
+                <p class="font-medium text-gray-900 dark:text-white px-2">Duration</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400 px-2">30-60 minutes</p>
               </div>
             </div>
             <div class="flex items-center space-x-3 py-2">
-              <svg
-                class="w-5 h-5 text-blue-600 dark:text-blue-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
+              <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div class="py-1">
-                <p class="font-medium text-gray-900 dark:text-white">Timezone</p>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
+                <p class="font-medium text-gray-900 dark:text-white px-2">Timezone</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400 px-2">
                   Available in multiple timezones
                 </p>
               </div>
             </div>
             <div class="flex items-center space-x-3 py-2">
-              <svg
-                class="w-5 h-5 text-blue-600 dark:text-blue-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                />
+              <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
               <div class="py-1">
-                <p class="font-medium text-gray-900 dark:text-white">Format</p>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
+                <p class="font-medium text-gray-900 dark:text-white px-2">Format</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400 px-2">
                   Video call (Google Meet/Zoom)
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Alternative Contact -->
-        <div
-          class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 py-3"
-        >
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 py-2">
-            Can't find a time?
-          </h3>
-          <p class="text-gray-600 dark:text-gray-400 mb-4 py-1">
-            If none of the available times work for you, feel free to reach out directly.
-          </p>
-          <div class="space-y-3 py-2">
-            <a
-              href="mailto:eduardo.castellanos@example.com"
-              class="flex items-center space-x-3 p-3 bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 transition-colors duration-200 py-1"
-            >
-              <svg
-                class="w-5 h-5 text-blue-600 dark:text-blue-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-              <span class="text-gray-700 dark:text-gray-300 font-medium">Send an email</span>
-            </a>
-            <a
-              href="https://linkedin.com/in/eduardo-castellanos"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center space-x-3 p-3 bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 transition-colors duration-200 py-1"
-            >
-              <svg
-                class="w-5 h-5 text-blue-600 dark:text-blue-400"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                />
-              </svg>
-              <span class="text-gray-700 dark:text-gray-300 font-medium">Connect on LinkedIn</span>
-            </a>
           </div>
         </div>
       </div>

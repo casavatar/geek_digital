@@ -1,7 +1,7 @@
 <template>
   <button
     @click="toggleDarkMode"
-    class="relative p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+    class="relative flex items-center justify-center p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
     :aria-label="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
     :title="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
   >
@@ -14,13 +14,7 @@
       leave-from-class="scale-100 rotate-0 opacity-100"
       leave-to-class="scale-0 -rotate-90 opacity-0"
     >
-      <svg
-        v-if="!isDarkMode"
-        class="w-5 h-5 absolute inset-0 m-auto"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg v-if="isDarkMode" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -39,13 +33,7 @@
       leave-from-class="scale-100 rotate-0 opacity-100"
       leave-to-class="scale-0 -rotate-90 opacity-0"
     >
-      <svg
-        v-if="isDarkMode"
-        class="w-5 h-5 absolute inset-0 m-auto"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg v-if="!isDarkMode" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -54,9 +42,6 @@
         />
       </svg>
     </Transition>
-
-    <!-- Placeholder to maintain button size during transitions -->
-    <div class="w-5 h-5 opacity-0" aria-hidden="true"></div>
   </button>
 </template>
 

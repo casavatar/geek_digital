@@ -1,24 +1,21 @@
 <template>
   <!-- Liquid Glass Sidebar Container -->
   <div
-    class="flex flex-col h-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 border-r border-gray-200/50 dark:border-gray-700/50 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50"
-  >
+    class="flex flex-col h-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 border-r border-gray-200/50 dark:border-gray-700/50 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50">
     <!-- Sidebar Header with Glass Effect -->
     <div
-      class="p-6 border-b border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-gray-800/50 dark:to-gray-900/50"
-    >
+      class="p-6 border-b border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-gray-800/50 dark:to-gray-900/50">
       <div class="flex items-center space-x-3">
         <!-- Glass Icon Container -->
         <div
-          class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30 backdrop-blur-sm ring-2 ring-blue-100/50 dark:ring-blue-900/50 transition-transform duration-200 hover:scale-105"
-        >
+          class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30 backdrop-blur-sm ring-2 ring-blue-100/50 dark:ring-blue-900/50 transition-transform duration-200 hover:scale-105">
           <Icon name="chart-bar" class="text-white" size="lg" />
         </div>
         <div>
-          <h2 class="text-lg font-bold text-gray-900 dark:text-white drop-shadow-sm">
+          <h2 class="text-lg font-bold text-gray-900 dark:text-white drop-shadow-sm px-2">
             {{ $t('sidebar.brand') }}
           </h2>
-          <p class="text-xs text-gray-600 dark:text-gray-400">Eduardo Castellanos</p>
+          <p class="text-xs text-gray-600 dark:text-gray-400 px-2">Eduardo Castellanos</p>
         </div>
       </div>
     </div>
@@ -27,63 +24,44 @@
     <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
       <template v-for="item in mainNavItems" :key="item.name">
         <!-- Simple Link (no children) with Glass Effect -->
-        <router-link
-          v-if="!item.children"
-          :to="item.route"
-          @click="handleNavigation"
+        <router-link v-if="!item.children" :to="item.route" @click="handleNavigation"
           class="flex items-center space-x-3 px-4 py-3 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-white/60 dark:hover:bg-gray-700/60 backdrop-blur-sm transition-all duration-200 group hover:shadow-md hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50 hover:scale-[1.02]"
           :class="{
             'bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-600 dark:text-blue-400 shadow-lg shadow-blue-500/20 ring-2 ring-blue-100/50 dark:ring-blue-900/50 backdrop-blur-md':
               isActiveRoute(item.route),
-          }"
-        >
-          <Icon
-            :name="item.icon"
-            :class="isActiveRoute(item.route) ? 'text-blue-600 dark:text-blue-400 drop-shadow-sm' : ''"
-          />
-          <span class="font-medium">{{ getTranslatedLabel(item) }}</span>
+          }">
+          <Icon :name="item.icon"
+            :class="isActiveRoute(item.route) ? 'text-blue-600 dark:text-blue-400 drop-shadow-sm' : ''" />
+          <span class="font-medium px-2">{{ getTranslatedLabel(item) }}</span>
         </router-link>
 
         <!-- Expandable Section (with children) with Glass Effect -->
         <div v-else class="space-y-1">
-          <button
-            @click="toggleSection(item.name)"
+          <button @click="toggleSection(item.name)"
             class="flex items-center justify-between w-full px-4 py-3 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-white/60 dark:hover:bg-gray-700/60 backdrop-blur-sm transition-all duration-200 group hover:shadow-md hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50"
             :class="{
               'bg-white/60 dark:bg-gray-700/60 shadow-md shadow-gray-200/50 dark:shadow-gray-900/50':
                 expandedSections[item.name],
-            }"
-          >
+            }">
             <div class="flex items-center space-x-3">
               <Icon :name="item.icon" />
-              <span class="font-medium">{{ getTranslatedLabel(item) }}</span>
+              <span class="font-medium px-2">{{ getTranslatedLabel(item) }}</span>
             </div>
-            <Icon
-              name="chevron-down"
-              size="sm"
-              :class="`transition-transform duration-200 ${expandedSections[item.name] ? 'rotate-180' : ''}`"
-            />
+            <Icon name="chevron-down" size="sm"
+              :class="`transition-transform duration-200 ${expandedSections[item.name] ? 'rotate-180' : ''}`" />
           </button>
 
           <!-- Submenu with Glass Effect -->
           <div v-show="expandedSections[item.name]" class="ml-8 space-y-1">
-            <router-link
-              v-for="child in item.children"
-              :key="child.name"
-              :to="child.route"
-              @click="handleNavigation"
+            <router-link v-for="child in item.children" :key="child.name" :to="child.route" @click="handleNavigation"
               class="flex items-center space-x-3 px-4 py-2 text-sm text-gray-600 dark:text-gray-400 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/50 backdrop-blur-sm transition-all duration-200 hover:shadow-sm hover:shadow-gray-200/30 dark:hover:shadow-gray-900/30"
               :class="{
                 'bg-gradient-to-r from-blue-50/70 to-indigo-50/70 dark:from-blue-900/25 dark:to-indigo-900/25 text-blue-600 dark:text-blue-400 shadow-md shadow-blue-500/10 ring-1 ring-blue-100/50 dark:ring-blue-900/50 backdrop-blur-sm':
                   isActiveRoute(child.route),
-              }"
-            >
-              <Icon
-                :name="child.icon"
-                size="sm"
-                :class="isActiveRoute(child.route) ? 'text-blue-600 dark:text-blue-400' : ''"
-              />
-              <span>{{ getTranslatedLabel(child) }}</span>
+              }">
+              <Icon :name="child.icon" size="sm"
+                :class="isActiveRoute(child.route) ? 'text-blue-600 dark:text-blue-400' : ''" />
+              <span class="font-medium px-2">{{ getTranslatedLabel(child) }}</span>
             </router-link>
           </div>
         </div>
@@ -92,8 +70,7 @@
 
     <!-- Sidebar Footer with Glass Effect -->
     <div
-      class="p-4 border-t border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-t from-white/50 to-transparent dark:from-gray-800/50"
-    >
+      class="p-4 border-t border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-t from-white/50 to-transparent dark:from-gray-800/50">
       <div class="text-xs text-gray-600 dark:text-gray-400 text-center space-y-1">
         <p class="font-medium">Data Engineering Portfolio</p>
         <p class="opacity-75">© {{ currentYear }} Eduardo Castellanos</p>

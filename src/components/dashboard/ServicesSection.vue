@@ -1,26 +1,22 @@
 <template>
   <div class="dashboard-card p-8 py-8">
     <!-- Section Header -->
-    <div class="text-center mb-12 py-6">
-      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4 py-2">
+    <div class="flex flex-col items-center text-center mb-12 py-4 space-y-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
         {{ $t('services.title') }}
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto py-2">
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-4xl px-4 leading-relaxed py-2">
         {{ $t('services.subtitle') }}
       </p>
     </div>
 
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-4">
-      <div
-        v-for="service in services"
-        :key="service.id"
-        class="group relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 py-6 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-      >
+      <div v-for="service in services" :key="service.id"
+        class="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 py-6 border border-gray-200/50 dark:border-gray-700/50 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-blue-500/20 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer hover:border-blue-400/80 dark:hover:border-blue-500/80 hover:ring-2 hover:ring-blue-400/50 dark:hover:ring-blue-500/50 hover:ring-offset-2 hover:ring-offset-white/50 dark:hover:ring-offset-gray-900/50">
         <!-- Service Icon -->
         <div
-          class="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-2xl flex items-center justify-center mb-6 py-2 group-hover:scale-110 transition-transform duration-300"
-        >
+          class="w-16 h-16 bg-gradient-to-br from-blue-50/90 to-indigo-50/90 dark:from-blue-900/40 dark:to-indigo-900/40 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 py-2 shadow-lg shadow-blue-200/50 dark:shadow-blue-900/50 ring-2 ring-blue-200/50 dark:ring-blue-800/50 group-hover:scale-110 group-hover:shadow-xl group-hover:ring-blue-300/60 dark:group-hover:ring-blue-700/60 transition-all duration-300">
           <div class="w-8 h-8 text-blue-600 dark:text-blue-400 py-1">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" v-html="service.icon"></svg>
           </div>
@@ -29,34 +25,21 @@
         <!-- Service Content -->
         <div class="space-y-4 py-3">
           <h3
-            class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 py-1"
-          >
+            class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 py-1 drop-shadow-sm">
             {{ service.title }}
           </h3>
-          <p class="text-gray-600 dark:text-gray-300 leading-relaxed py-1">
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed py-1 drop-shadow-sm">
             {{ service.description }}
           </p>
         </div>
 
-        <!-- Hover Effect Overlay -->
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        ></div>
-
         <!-- Learn More Link -->
-        <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 py-2">
-          <button
-            @click="openModal(service)"
-            class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium text-sm transition-colors duration-200 group-hover:translate-x-1 transform transition-transform duration-200"
-          >
+        <div class="mt-6 pt-6 border-t border-gray-200/30 dark:border-gray-700/30 py-2">
+          <button @click="openModal(service)"
+            class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium text-sm transition-colors duration-200 group-hover:translate-x-1 transform transition-transform duration-200">
             <span>Learn more</span>
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
@@ -66,40 +49,24 @@
     <!-- Call to Action -->
     <div class="mt-12 text-center py-6">
       <div
-        class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 py-8 border border-blue-200 dark:border-blue-800"
-      >
-        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 py-2">
+        class="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 py-8 border border-blue-200/50 dark:border-blue-800/50 shadow-lg shadow-blue-200/50 dark:shadow-blue-900/50">
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 py-2 drop-shadow-sm">
           {{ $t('services.cta') }}
         </h3>
         <div class="flex flex-col sm:flex-row gap-4 justify-center py-3">
-          <a
-            href="mailto:your.email@example.com"
-            class="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:ring-offset-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-          >
+          <a href="mailto:your.email@example.com"
+            class="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-blue-600/90 hover:bg-blue-700/95 active:bg-blue-800/95 backdrop-blur-sm text-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500/50 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50 ring-2 ring-blue-400/20 hover:ring-blue-300/40 transform hover:-translate-y-1 hover:scale-[1.03] active:translate-y-0 active:scale-100">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             <span>Get in Touch</span>
           </a>
-          <a
-            v-if="personalInfo.cvUrl"
-            :href="personalInfo.cvUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center space-x-2 px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-gray-500/30 focus:ring-offset-2"
-          >
+          <a v-if="personalInfo.cvUrl" :href="personalInfo.cvUrl" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center space-x-2 px-8 py-4 border-2 border-gray-300/50 dark:border-gray-600/50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md backdrop-saturate-150 text-gray-700 dark:text-gray-300 hover:bg-white/90 dark:hover:bg-gray-700/90 hover:border-gray-400/70 dark:hover:border-gray-500/70 active:bg-gray-100/95 dark:active:bg-gray-700/95 font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-gray-500/30 shadow-lg shadow-gray-300/40 dark:shadow-gray-900/40 hover:shadow-xl hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50 transform hover:-translate-y-1 hover:scale-[1.03] active:translate-y-0 active:scale-100">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             <span>View Portfolio</span>
           </a>
@@ -108,190 +75,129 @@
     </div>
 
     <!-- Modal -->
-    <Teleport to="body">
-      <Transition name="modal" @enter="onEnter" @leave="onLeave">
-        <div
-          v-if="isModalOpen"
-          class="fixed inset-0 z-50 flex items-center justify-center p-4"
-          @click.self="closeModal"
-        >
-          <!-- Backdrop -->
-          <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="closeModal"></div>
-
-          <!-- Modal Content -->
+    <BaseModal :is-open="isModalOpen" :title="selectedService?.title" size="lg" @close="closeModal"
+      class="modal-custom-sizing">
+      <!-- Custom Header -->
+      <template #header>
+        <div class="flex items-start space-x-3">
           <div
-            class="relative bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform"
-            role="dialog"
-            aria-modal="true"
-            :aria-labelledby="selectedService?.id + '-modal-title'"
-          >
-            <!-- Close Button -->
-            <button
-              @click="closeModal"
-              class="absolute top-4 right-4 z-10 p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
-              aria-label="Close modal"
-            >
-              <svg
-                class="w-6 h-6 text-gray-600 dark:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
-            <!-- Modal Header -->
-            <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 rounded-t-3xl">
-              <div class="flex items-start space-x-68">
-                <div
-                  class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0"
-                >
-                  <div class="w-8 h-8 text-white">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      v-html="selectedService?.icon"
-                    ></svg>
-                  </div>
-                </div>
-                <div class="flex-1 pt-1 pl-3">
-                  <h3
-                    :id="selectedService?.id + '-modal-title'"
-                    class="text-3xl font-bold text-white mb-3"
-                  >
-                    {{ selectedService?.title }}
-                  </h3>
-                  <p class="text-blue-100 leading-relaxed">
-                    {{ selectedService?.description }}
-                  </p>
-                </div>
-              </div>
+            class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0">
+            <div class="w-6 h-6 text-white">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" v-html="selectedService?.icon"></svg>
             </div>
+          </div>
+          <div class="flex-1 pt-0.5">
+            <h3 class="text-2xl font-semibold text-white/90 mb-2 px-2">
+              {{ selectedService?.title }}
+            </h3>
+            <p class="text-blue-100/90 leading-snug text-sm px-2">
+              {{ selectedService?.description }}
+            </p>
+          </div>
+        </div>
+      </template>
 
-            <!-- Modal Body -->
-            <div class="p-8 space-y-8">
-              <!-- Business Impact Section -->
-              <section>
-                <h4
-                  class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center pb-4"
-                >
-                  <svg
-                    class="w-6 h-6 mr-2 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                    />
-                  </svg>
-                  Business Impact
-                </h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div
-                    v-for="(metric, index) in getServiceMetrics(selectedService?.id)"
-                    :key="index"
-                    class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-6 border border-blue-200 dark:border-blue-800 transform hover:scale-105 transition-transform duration-300"
-                    :style="{ animationDelay: `${index * 100}ms` }"
-                  >
-                    <div class="flex items-start space-x-4">
-                      <div class="flex-shrink-0 pr-3">
-                        <div
-                          class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center"
-                        >
-                          <span class="text-2xl">{{ metric.icon }}</span>
-                        </div>
-                      </div>
-                      <div class="flex-1">
-                        <div class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                          {{ metric.value }}
-                        </div>
-                        <div class="text-sm font-medium text-gray-900 dark:text-white mb-1">
-                          {{ metric.label }}
-                        </div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">
-                          {{ metric.description }}
-                        </div>
-                      </div>
-                    </div>
+      <!-- Modal Body -->
+      <div class="space-y-6 p-6 sm:p-8">
+        <!-- Business Impact Section -->
+        <section>
+          <div class="flex items-center space-x-4 mb-5 pt-4 pb-3 border-b border-gray-200/40 dark:border-gray-700/40">
+            <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+            <h4 class="text-xl font-semibold text-gray-900 dark:text-white tracking-tight px-2">
+              Business Impact
+            </h4>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div v-for="(metric, index) in getServiceMetrics(selectedService?.id)" :key="index" class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20
+                    rounded-2xl p-5 border border-blue-200/40 dark:border-blue-800/40
+                    transform hover:scale-[1.01] transition-transform duration-200"
+              :style="{ animationDelay: `${index * 100}ms` }">
+              <div class="flex items-start space-x-5"> <!-- Added space-x-5 for clear separation -->
+                <!-- Icon Container -->
+                <div class="flex-shrink-0">
+                  <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl
+                          flex items-center justify-center shadow-md">
+                    <span class="text-2xl text-white">{{ metric.icon }}</span>
                   </div>
                 </div>
-              </section>
 
-              <!-- Key Benefits -->
-              <section>
-                <h4
-                  class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center pt-6 pb-4"
-                >
-                  <svg
-                    class="w-6 h-6 mr-2 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  Key Benefits
-                </h4>
-                <ul class="space-y-3">
-                  <li
-                    v-for="(benefit, index) in getServiceBenefits(selectedService?.id)"
-                    :key="index"
-                    class="flex items-start space-x-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200"
-                  >
-                    <svg
-                      class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span class="text-gray-700 dark:text-gray-300">{{ benefit }}</span>
-                  </li>
-                </ul>
-              </section>
-
-              <!-- CTA Button -->
-              <div class="pt-6 border-t border-gray-200 dark:border-gray-700">
-                <button
-                  @click="closeModal"
-                  class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  Get Started with This Service
-                </button>
+                <!-- Text Content -->
+                <div class="flex-1 space-y-1">
+                  <div class="text-2xl font-bold text-blue-600 dark:text-blue-400 px-2">
+                    {{ metric.value }}
+                  </div>
+                  <div class="text-sm font-medium text-gray-900 dark:text-white px-2">
+                    {{ metric.label }}
+                  </div>
+                  <div class="text-xs text-gray-600 dark:text-gray-400 leading-snug px-2">
+                    {{ metric.description }}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </section>
+
+        <!-- Key Benefits -->
+        <section>
+          <!-- Section Header -->
+          <div class="flex items-center space-x-4 mb-5 pt-4 pb-3 border-b border-gray-200/40 dark:border-gray-700/40">
+            <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h4 class="text-xl font-semibold text-gray-900 dark:text-white tracking-tight px-2">
+              Key Benefits
+            </h4>
+          </div>
+
+          <!-- Benefits List -->
+          <ul class="space-y-3 mt-4">
+            <li v-for="(benefit, index) in getServiceBenefits(selectedService?.id)" :key="index"
+              class="flex items-start space-x-4 py-2">
+              <!-- Icon -->
+              <div class="flex-shrink-0 w-7 h-7 bg-green-100/80 dark:bg-green-900/40 rounded-lg
+                      flex items-center justify-center shadow-sm">
+                <svg class="w-4 h-4 text-green-600 dark:text-green-400" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+
+              <!-- Benefit Text -->
+              <span class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed px-2">
+                {{ benefit }}
+              </span>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer with CTA -->
+      <template #footer>
+        <div class="flex justify-center items-center mt-6">
+          <div class="max-w-md w-full text-center">
+            <button @click="closeModal" class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
+                    text-white text-sm font-semibold py-3 px-8 rounded-xl
+                    hover:scale-[1.02] hover:shadow-lg transition-transform duration-200
+                    focus:outline-none focus:ring-4 focus:ring-blue-500/50
+                    shadow-lg shadow-gray-200/40 dark:shadow-gray-900/40" aria-label="Get started with this service">
+              Get Started with This Service
+            </button>
+          </div>
         </div>
-      </Transition>
-    </Teleport>
+      </template>
+    </BaseModal>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { BaseModal } from '@/components/ui'
 import type { PersonalInfo } from '@/types'
 
 /**
@@ -373,42 +279,13 @@ const services = computed<Service[]>(() => [
 const openModal = (service: Service) => {
   selectedService.value = service
   isModalOpen.value = true
-  document.body.style.overflow = 'hidden'
 }
 
 const closeModal = () => {
   isModalOpen.value = false
-  document.body.style.overflow = ''
   setTimeout(() => {
     selectedService.value = null
   }, 300)
-}
-
-/**
- * Animation hooks for smooth modal transitions
- * Using custom easing for spring-like effect
- */
-const onEnter = (el: Element) => {
-  const element = el as HTMLElement
-  element.style.opacity = '0'
-  element.style.transform = 'scale(0.95) translateY(-20px)'
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      element.style.transition =
-        'opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
-      element.style.opacity = '1'
-      element.style.transform = 'scale(1) translateY(0)'
-    })
-  })
-}
-
-const onLeave = (el: Element) => {
-  const element = el as HTMLElement
-  element.style.transition =
-    'opacity 0.3s cubic-bezier(0.4, 0, 1, 1), transform 0.3s cubic-bezier(0.4, 0, 1, 1)'
-  element.style.opacity = '0'
-  element.style.transform = 'scale(0.95) translateY(-20px)'
 }
 
 /**
@@ -663,6 +540,7 @@ const getServiceBenefits = (serviceId: string | undefined): string[] => {
     opacity: 0;
     transform: scale(0.95) translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -674,6 +552,7 @@ const getServiceBenefits = (serviceId: string | undefined): string[] => {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
+
   to {
     opacity: 0;
     transform: scale(0.95) translateY(-20px);

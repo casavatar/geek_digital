@@ -6,6 +6,7 @@ export { default as Badge } from './Badge.vue'
 export { default as StatusBadge } from './StatusBadge.vue'
 export { default as ProgressBar } from './ProgressBar.vue'
 export { default as Input } from './Input.vue'
+export { default as BaseModal } from './BaseModal.vue'
 
 // Legacy components (to be refactored)
 export { default as ProjectCard } from './ProjectCard.vue'

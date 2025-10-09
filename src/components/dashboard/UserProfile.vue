@@ -1,21 +1,17 @@
 <template>
-  <article class="dashboard-card p-6 sm:p-8 lg:p-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 shadow-xl shadow-gray-200/50 dark:shadow-gray-900/50 border border-gray-200/50 dark:border-gray-700/50">
+  <article class="dashboard-card p-6 sm:p-8 lg:p-10">
     <!-- Profile Header with Glass Overlay -->
-    <header class="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8 mb-10 py-6 px-6 -mx-6 sm:-mx-8 lg:-mx-10 -mt-6 sm:-mt-8 lg:-mt-10 bg-gradient-to-br from-white/40 to-gray-50/40 dark:from-gray-800/40 dark:to-gray-900/40 rounded-t-2xl backdrop-blur-sm border-b border-gray-200/30 dark:border-gray-700/30">
+    <header
+      class="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8 mb-10 py-6 px-6 -mx-6 sm:-mx-8 lg:-mx-10 -mt-6 sm:-mt-8 lg:-mt-10from-white/40 to-gray-50/40 dark:from-gray-800/40 dark:to-gray-900/40 rounded-t-2xl backdrop-blur-sm border-b border-gray-200/30 dark:border-gray-700/30">
       <!-- Profile Image -->
       <div class="relative flex-shrink-0">
-        <img
-          :src="personalInfo.avatar"
-          :alt="`${personalInfo.name} profile picture`"
+        <img :src="personalInfo.avatar" :alt="`${personalInfo.name} profile picture`"
           class="w-32 h-32 lg:w-40 lg:h-40 rounded-2xl object-cover ring-4 ring-blue-100/50 dark:ring-blue-900/50 shadow-xl shadow-blue-500/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/30 hover:ring-blue-200/70 dark:hover:ring-blue-800/70"
-          loading="lazy"
-        />
+          loading="lazy" />
         <!-- Status Indicator with Glass Effect -->
         <div
           class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500/90 backdrop-blur-sm rounded-full border-4 border-white/80 dark:border-gray-800/80 flex items-center justify-center shadow-lg shadow-green-500/40"
-          role="status"
-          aria-label="Available"
-        >
+          role="status" aria-label="Available">
           <div class="w-3 h-3 bg-white rounded-full animate-pulse"></div>
         </div>
       </div>
@@ -32,25 +28,11 @@
         </div>
 
         <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 py-2">
-          <svg
-            class="w-4 h-4 flex-shrink-0"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            />
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           <span>Remote / Hybrid</span>
         </div>
@@ -64,47 +46,20 @@
 
         <!-- Action Buttons with Glass Effects -->
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 pb-2">
-          <a
-            v-if="personalInfo.cvUrl"
-            :href="personalInfo.cvUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600/90 hover:bg-blue-700/90 active:bg-blue-800/90 backdrop-blur-sm text-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500/50 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transform hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0"
-          >
-            <svg
-              class="w-5 h-5 flex-shrink-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
+          <a v-if="personalInfo.cvUrl" :href="personalInfo.cvUrl" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600/90 hover:bg-blue-700/90 active:bg-blue-800/90 backdrop-blur-sm text-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500/50 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transform hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             <span>{{ $t('header.downloadCv') }}</span>
           </a>
 
-          <a
-            href="mailto:your.email@example.com"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-gray-300/50 dark:border-gray-600/50 bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm text-gray-700 dark:text-gray-300 hover:bg-white/60 dark:hover:bg-gray-700/60 hover:border-gray-400/60 dark:hover:border-gray-500/60 active:bg-gray-100/70 dark:active:bg-gray-700/70 font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-gray-500/30 shadow-md shadow-gray-300/30 dark:shadow-gray-900/30 hover:shadow-lg hover:shadow-gray-300/40 dark:hover:shadow-gray-900/40 transform hover:-translate-y-0.5 hover:scale-[1.02]"
-          >
-            <svg
-              class="w-5 h-5 flex-shrink-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
+          <a href="mailto:your.email@example.com"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-gray-300/50 dark:border-gray-600/50 bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm text-gray-700 dark:text-gray-300 hover:bg-white/60 dark:hover:bg-gray-700/60 hover:border-gray-400/60 dark:hover:border-gray-500/60 active:bg-gray-100/70 dark:active:bg-gray-700/70 font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-gray-500/30 shadow-md shadow-gray-300/30 dark:shadow-gray-900/30 hover:shadow-lg hover:shadow-gray-300/40 dark:hover:shadow-gray-900/40 transform hover:-translate-y-0.5 hover:scale-[1.02]">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             <span>{{ $t('contact.title') }}</span>
           </a>
@@ -125,43 +80,33 @@
 
       <!-- Skills Grid with Glass Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        <div
-          v-for="skill in skills"
-          :key="skill.name"
-          class="group relative p-4 bg-gradient-to-br from-white/60 to-gray-50/60 dark:from-gray-700/60 dark:to-gray-800/60 backdrop-blur-md rounded-xl hover:from-blue-50/70 hover:to-indigo-50/70 dark:hover:from-blue-900/30 dark:hover:to-indigo-900/30 border border-gray-200/30 dark:border-gray-700/30 transition-all duration-300 cursor-pointer transform hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50 hover:border-blue-200/50 dark:hover:border-blue-800/50"
-        >
+        <div v-for="skill in skills" :key="skill.name"
+          class="group relative p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-md shadow-gray-200/50 dark:shadow-gray-900/50 transition-all duration-300 cursor-pointer hover:bg-gradient-to-br hover:shadow-lg hover:ring-2 hover:ring-offset-2 hover:ring-offset-white/50 dark:hover:ring-offset-gray-900/50 hover:scale-[1.02] hover:-translate-y-1"
+          :class="[
+            skill.hoverBorderColor,
+            skill.hoverRingColor,
+            skill.hoverShadowColor,
+            skill.hoverGradientFrom,
+            skill.hoverGradientTo,
+          ]">
           <div class="flex items-start gap-3 py-1">
             <div
               class="w-10 h-10 flex-shrink-0 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm flex items-center justify-center text-2xl shadow-md shadow-gray-300/50 dark:shadow-gray-900/50 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 ring-1 ring-gray-200/50 dark:ring-gray-700/50"
-              role="img"
-              :aria-label="`${skill.name} icon`"
-            >
+              role="img" :aria-label="`${skill.name} icon`">
               {{ skill.icon }}
             </div>
             <div class="flex-1 min-w-0 py-0.5">
-              <p
-                class="text-sm font-semibold text-gray-900 dark:text-white truncate mb-4.5 leading-snug"
-              >
+              <p class="text-sm font-semibold text-gray-900 dark:text-white truncate mb-4.5 leading-snug">
                 {{ skill.name }}
               </p>
               <div class="flex items-center gap-2">
-                <div
-                  class="flex-1 bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden"
-                  role="progressbar"
-                  :aria-valuenow="skill.level"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  :aria-label="`${skill.name} proficiency: ${skill.level}%`"
-                >
-                  <div
-                    class="h-full rounded-full transition-all duration-500 ease-out"
-                    :class="skill.levelColor"
-                    :style="{ width: `${skill.level}%` }"
-                  ></div>
+                <div class="flex-1 bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden" role="progressbar"
+                  :aria-valuenow="skill.level" aria-valuemin="0" aria-valuemax="100"
+                  :aria-label="`${skill.name} proficiency: ${skill.level}%`">
+                  <div class="h-full rounded-full transition-all duration-500 ease-out" :class="skill.levelColor"
+                    :style="{ width: `${skill.level}%` }"></div>
                 </div>
-                <span
-                  class="text-xs font-medium text-gray-600 dark:text-gray-400 min-w-[2.5rem] text-right"
-                >
+                <span class="text-xs font-medium text-gray-600 dark:text-gray-400 min-w-[2.5rem] text-right">
                   {{ skill.level }}%
                 </span>
               </div>
@@ -172,10 +117,7 @@
     </section>
 
     <!-- Quick Stats with Glass Separator -->
-    <section
-      ref="statsSection"
-      class="mt-10 pt-10 pb-6 border-t border-gray-200/30 dark:border-gray-700/30"
-    >
+    <section ref="statsSection" class="mt-10 pt-10 pb-6 border-t border-gray-200/30 dark:border-gray-700/30">
       <div class="mb-8 py-2">
         <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-3 leading-tight drop-shadow-sm">
           {{ $t('home.quickStats') }}
@@ -185,34 +127,41 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-        <div
-          v-for="card in statsCards"
-          :key="card.key"
-          class="group text-center p-6 bg-gradient-to-br rounded-xl backdrop-blur-md border border-gray-200/30 dark:border-gray-700/30 hover:shadow-xl hover:shadow-gray-300/50 dark:hover:shadow-gray-900/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 cursor-pointer hover:border-opacity-50"
-          :class="[
-            card.gradientFrom,
-            card.gradientTo,
-            card.darkGradientFrom,
-            card.darkGradientTo,
-            statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
-          ]"
-          :style="{
-            transitionDelay: `${card.animationDelay}ms`,
-            transitionProperty: 'all',
-          }"
-        >
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 py-6">
+        <div v-for="card in statsCards" :key="card.key" class="group text-center p-5
+             bg-gradient-to-br
+             rounded-xl backdrop-blur-xl
+             backdrop-saturate-150 rounded-xl
+             border border-gray-200/40 dark:border-gray-700/40
+             shadow-md shadow-gray-200/30 dark:shadow-gray-900/30
+             transition-all duration-300 ease-out transform
+             hover:-translate-y-2 hover:scale-105
+             hover:brightness-125 hover:saturate-150
+             hover:shadow-lg
+             cursor-pointer" :class="[
+              card.gradientFrom,
+              card.gradientTo,
+              card.darkGradientFrom,
+              card.darkGradientTo,
+              card.hoverRingColor,
+              card.hoverBorderColor,
+              `shadow-${card.color}-200/40 dark:shadow-${card.color}-900/40`,
+              `hover:shadow-xl hover:shadow-${card.color}-300/60 dark:hover:shadow-${card.color}-800/60`,
+              `hover:${card.gradientFrom} hover:${card.gradientTo} dark:hover:${card.darkGradientFrom} dark:hover:${card.darkGradientTo}`,
+              statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
+            ]" :style="{
+              transitionDelay: `${card.animationDelay}ms`,
+              transitionProperty: 'all',
+            }">
           <div
-            class="text-4xl font-bold mb-3 py-2 group-hover:scale-110 transition-all duration-300 ease-out drop-shadow-sm"
-            :class="`text-${card.color}-600 dark:text-${card.color}-400`"
-          >
+            class="text-4xl lg:text-5xl font-bold mb-3 py-2 transition-all duration-300 ease-out drop-shadow-lg group-hover:scale-110 group-hover:drop-shadow-2xl"
+            :class="`text-${card.color}-600 dark:text-${card.color}-400`">
             <span class="inline-block tabular-nums">
               {{ animatedStats[card.key] }}{{ card.suffix || '' }}
             </span>
           </div>
           <div
-            class="text-sm font-medium text-gray-700 dark:text-gray-300 leading-snug mt-1 mb-2.5 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300 drop-shadow-sm"
-          >
+            class="text-sm font-semibold text-gray-700 dark:text-gray-300 leading-snug mt-1 mb-2.5 transition-colors duration-300 drop-shadow-sm group-hover:text-gray-900 dark:group-hover:text-white group-hover:drop-shadow-md">
             {{ $t(card.labelKey) }}
           </div>
         </div>
@@ -235,6 +184,11 @@ interface Skill {
   level: number
   levelColor: string
   category?: 'language' | 'database' | 'cloud' | 'tool' | 'framework'
+  hoverBorderColor?: string
+  hoverRingColor?: string
+  hoverShadowColor?: string
+  hoverGradientFrom?: string
+  hoverGradientTo?: string
 }
 
 interface Stats {
@@ -254,6 +208,8 @@ interface StatCard {
   labelKey: string
   suffix?: string
   animationDelay: number
+  hoverRingColor?: string
+  hoverBorderColor?: string
 }
 
 interface Props {
@@ -304,14 +260,84 @@ const SKILL_COLORS = {
 /** Skills data organized by category for better maintainability */
 const SKILLS_DATA: Skill[] = [
   // Programming Languages
-  { name: 'Python', icon: '🐍', level: 95, levelColor: SKILL_COLORS.green, category: 'language' },
-  { name: 'SAS', icon: '📈', level: 95, levelColor: SKILL_COLORS.blue, category: 'language' },
-  { name: 'C#', icon: '#️⃣', level: 95, levelColor: 'bg-purple-400', category: 'language' },
-  { name: 'R', icon: '📊', level: 85, levelColor: SKILL_COLORS.red, category: 'language' },
+  {
+    name: 'Python',
+    icon: '🐍',
+    level: 95,
+    levelColor: SKILL_COLORS.green,
+    category: 'language',
+    hoverBorderColor: 'hover:border-green-400/80 dark:hover:border-green-500/80',
+    hoverRingColor: 'hover:ring-green-400/50 dark:hover:ring-green-500/50',
+    hoverShadowColor: 'hover:shadow-green-500/30 dark:hover:shadow-green-500/20',
+    hoverGradientFrom: 'hover:from-green-50/90',
+    hoverGradientTo:
+      'hover:to-emerald-50/90 dark:hover:from-green-900/40 dark:hover:to-emerald-900/40',
+  },
+  {
+    name: 'SAS',
+    icon: '📈',
+    level: 95,
+    levelColor: SKILL_COLORS.blue,
+    category: 'language',
+    hoverBorderColor: 'hover:border-blue-400/80 dark:hover:border-blue-500/80',
+    hoverRingColor: 'hover:ring-blue-400/50 dark:hover:ring-blue-500/50',
+    hoverShadowColor: 'hover:shadow-blue-500/30 dark:hover:shadow-blue-500/20',
+    hoverGradientFrom: 'hover:from-blue-50/90',
+    hoverGradientTo:
+      'hover:to-indigo-50/90 dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40',
+  },
+  {
+    name: 'C#',
+    icon: '#️⃣',
+    level: 95,
+    levelColor: 'bg-purple-400',
+    category: 'language',
+    hoverBorderColor: 'hover:border-purple-400/80 dark:hover:border-purple-500/80',
+    hoverRingColor: 'hover:ring-purple-400/50 dark:hover:ring-purple-500/50',
+    hoverShadowColor: 'hover:shadow-purple-500/30 dark:hover:shadow-purple-500/20',
+    hoverGradientFrom: 'hover:from-purple-50/90',
+    hoverGradientTo:
+      'hover:to-violet-50/90 dark:hover:from-purple-900/40 dark:hover:to-violet-900/40',
+  },
+  {
+    name: 'R',
+    icon: '📊',
+    level: 85,
+    levelColor: SKILL_COLORS.red,
+    category: 'language',
+    hoverBorderColor: 'hover:border-red-400/80 dark:hover:border-red-500/80',
+    hoverRingColor: 'hover:ring-red-400/50 dark:hover:ring-red-500/50',
+    hoverShadowColor: 'hover:shadow-red-500/30 dark:hover:shadow-red-500/20',
+    hoverGradientFrom: 'hover:from-red-50/90',
+    hoverGradientTo: 'hover:to-rose-50/90 dark:hover:from-red-900/40 dark:hover:to-rose-900/40',
+  },
 
   // Databases
-  { name: 'SQL', icon: '🗄️', level: 90, levelColor: SKILL_COLORS.blue, category: 'database' },
-  { name: 'NoSQL', icon: '🗃️', level: 80, levelColor: SKILL_COLORS.purple, category: 'database' },
+  {
+    name: 'SQL',
+    icon: '🗄️',
+    level: 90,
+    levelColor: SKILL_COLORS.blue,
+    category: 'database',
+    hoverBorderColor: 'hover:border-blue-400/80 dark:hover:border-blue-500/80',
+    hoverRingColor: 'hover:ring-blue-400/50 dark:hover:ring-blue-500/50',
+    hoverShadowColor: 'hover:shadow-blue-500/30 dark:hover:shadow-blue-500/20',
+    hoverGradientFrom: 'hover:from-blue-50/90',
+    hoverGradientTo: 'hover:to-cyan-50/90 dark:hover:from-blue-900/40 dark:hover:to-cyan-900/40',
+  },
+  {
+    name: 'NoSQL',
+    icon: '🗃️',
+    level: 80,
+    levelColor: SKILL_COLORS.purple,
+    category: 'database',
+    hoverBorderColor: 'hover:border-purple-400/80 dark:hover:border-purple-500/80',
+    hoverRingColor: 'hover:ring-purple-400/50 dark:hover:ring-purple-500/50',
+    hoverShadowColor: 'hover:shadow-purple-500/30 dark:hover:shadow-purple-500/20',
+    hoverGradientFrom: 'hover:from-purple-50/90',
+    hoverGradientTo:
+      'hover:to-fuchsia-50/90 dark:hover:from-purple-900/40 dark:hover:to-fuchsia-900/40',
+  },
 
   // Big Data & Analytics
   {
@@ -320,20 +346,129 @@ const SKILLS_DATA: Skill[] = [
     level: 85,
     levelColor: SKILL_COLORS.orange,
     category: 'framework',
+    hoverBorderColor: 'hover:border-orange-400/80 dark:hover:border-orange-500/80',
+    hoverRingColor: 'hover:ring-orange-400/50 dark:hover:ring-orange-500/50',
+    hoverShadowColor: 'hover:shadow-orange-500/30 dark:hover:shadow-orange-500/20',
+    hoverGradientFrom: 'hover:from-orange-50/90',
+    hoverGradientTo:
+      'hover:to-amber-50/90 dark:hover:from-orange-900/40 dark:hover:to-amber-900/40',
   },
-  { name: 'Power BI', icon: '📊', level: 90, levelColor: SKILL_COLORS.yellow, category: 'tool' },
-  { name: 'Pandas', icon: '🐼', level: 92, levelColor: 'bg-green-400', category: 'framework' },
-  { name: 'TensorFlow', icon: '🧠', level: 78, levelColor: 'bg-orange-600', category: 'framework' },
+  {
+    name: 'Power BI',
+    icon: '📊',
+    level: 90,
+    levelColor: SKILL_COLORS.yellow,
+    category: 'tool',
+    hoverBorderColor: 'hover:border-yellow-400/80 dark:hover:border-yellow-500/80',
+    hoverRingColor: 'hover:ring-yellow-400/50 dark:hover:ring-yellow-500/50',
+    hoverShadowColor: 'hover:shadow-yellow-500/30 dark:hover:shadow-yellow-500/20',
+    hoverGradientFrom: 'hover:from-yellow-50/90',
+    hoverGradientTo:
+      'hover:to-amber-50/90 dark:hover:from-yellow-900/40 dark:hover:to-amber-900/40',
+  },
+  {
+    name: 'Pandas',
+    icon: '🐼',
+    level: 92,
+    levelColor: 'bg-green-400',
+    category: 'framework',
+    hoverBorderColor: 'hover:border-green-400/80 dark:hover:border-green-500/80',
+    hoverRingColor: 'hover:ring-green-400/50 dark:hover:ring-green-500/50',
+    hoverShadowColor: 'hover:shadow-green-500/30 dark:hover:shadow-green-500/20',
+    hoverGradientFrom: 'hover:from-green-50/90',
+    hoverGradientTo: 'hover:to-teal-50/90 dark:hover:from-green-900/40 dark:hover:to-teal-900/40',
+  },
+  {
+    name: 'TensorFlow',
+    icon: '🧠',
+    level: 78,
+    levelColor: 'bg-orange-600',
+    category: 'framework',
+    hoverBorderColor: 'hover:border-orange-400/80 dark:hover:border-orange-500/80',
+    hoverRingColor: 'hover:ring-orange-400/50 dark:hover:ring-orange-500/50',
+    hoverShadowColor: 'hover:shadow-orange-500/30 dark:hover:shadow-orange-500/20',
+    hoverGradientFrom: 'hover:from-orange-50/90',
+    hoverGradientTo: 'hover:to-red-50/90 dark:hover:from-orange-900/40 dark:hover:to-red-900/40',
+  },
 
   // Cloud & Infrastructure
-  { name: 'AWS', icon: '☁️', level: 80, levelColor: 'bg-orange-400', category: 'cloud' },
-  { name: 'Azure', icon: '🔷', level: 80, levelColor: 'bg-blue-400', category: 'cloud' },
-  { name: 'Docker', icon: '🐳', level: 90, levelColor: 'bg-blue-600', category: 'tool' },
-  { name: 'Kubernetes', icon: '⚙️', level: 70, levelColor: 'bg-blue-700', category: 'tool' },
+  {
+    name: 'AWS',
+    icon: '☁️',
+    level: 80,
+    levelColor: 'bg-orange-400',
+    category: 'cloud',
+    hoverBorderColor: 'hover:border-orange-400/80 dark:hover:border-orange-500/80',
+    hoverRingColor: 'hover:ring-orange-400/50 dark:hover:ring-orange-500/50',
+    hoverShadowColor: 'hover:shadow-orange-500/30 dark:hover:shadow-orange-500/20',
+    hoverGradientFrom: 'hover:from-orange-50/90',
+    hoverGradientTo:
+      'hover:to-yellow-50/90 dark:hover:from-orange-900/40 dark:hover:to-yellow-900/40',
+  },
+  {
+    name: 'Azure',
+    icon: '🔷',
+    level: 80,
+    levelColor: 'bg-blue-400',
+    category: 'cloud',
+    hoverBorderColor: 'hover:border-blue-400/80 dark:hover:border-blue-500/80',
+    hoverRingColor: 'hover:ring-blue-400/50 dark:hover:ring-blue-500/50',
+    hoverShadowColor: 'hover:shadow-blue-500/30 dark:hover:shadow-blue-500/20',
+    hoverGradientFrom: 'hover:from-blue-50/90',
+    hoverGradientTo: 'hover:to-sky-50/90 dark:hover:from-blue-900/40 dark:hover:to-sky-900/40',
+  },
+  {
+    name: 'Docker',
+    icon: '🐳',
+    level: 90,
+    levelColor: 'bg-blue-600',
+    category: 'tool',
+    hoverBorderColor: 'hover:border-blue-400/80 dark:hover:border-blue-500/80',
+    hoverRingColor: 'hover:ring-blue-400/50 dark:hover:ring-blue-500/50',
+    hoverShadowColor: 'hover:shadow-blue-500/30 dark:hover:shadow-blue-500/20',
+    hoverGradientFrom: 'hover:from-blue-50/90',
+    hoverGradientTo: 'hover:to-cyan-50/90 dark:hover:from-blue-900/40 dark:hover:to-cyan-900/40',
+  },
+  {
+    name: 'Kubernetes',
+    icon: '⚙️',
+    level: 70,
+    levelColor: 'bg-blue-700',
+    category: 'tool',
+    hoverBorderColor: 'hover:border-blue-400/80 dark:hover:border-blue-500/80',
+    hoverRingColor: 'hover:ring-blue-400/50 dark:hover:ring-blue-500/50',
+    hoverShadowColor: 'hover:shadow-blue-500/30 dark:hover:shadow-blue-500/20',
+    hoverGradientFrom: 'hover:from-blue-50/90',
+    hoverGradientTo:
+      'hover:to-indigo-50/90 dark:hover:from-blue-900/40 dark:hover:to-indigo-900/40',
+  },
 
   // Development Tools
-  { name: 'Git', icon: '📝', level: 90, levelColor: 'bg-orange-400', category: 'tool' },
-  { name: 'Linux', icon: '🐧', level: 85, levelColor: 'bg-yellow-600', category: 'tool' },
+  {
+    name: 'Git',
+    icon: '📝',
+    level: 90,
+    levelColor: 'bg-orange-400',
+    category: 'tool',
+    hoverBorderColor: 'hover:border-orange-400/80 dark:hover:border-orange-500/80',
+    hoverRingColor: 'hover:ring-orange-400/50 dark:hover:ring-orange-500/50',
+    hoverShadowColor: 'hover:shadow-orange-500/30 dark:hover:shadow-orange-500/20',
+    hoverGradientFrom: 'hover:from-orange-50/90',
+    hoverGradientTo: 'hover:to-red-50/90 dark:hover:from-orange-900/40 dark:hover:to-red-900/40',
+  },
+  {
+    name: 'Linux',
+    icon: '🐧',
+    level: 85,
+    levelColor: 'bg-yellow-600',
+    category: 'tool',
+    hoverBorderColor: 'hover:border-yellow-400/80 dark:hover:border-yellow-500/80',
+    hoverRingColor: 'hover:ring-yellow-400/50 dark:hover:ring-yellow-500/50',
+    hoverShadowColor: 'hover:shadow-yellow-500/30 dark:hover:shadow-yellow-500/20',
+    hoverGradientFrom: 'hover:from-yellow-50/90',
+    hoverGradientTo:
+      'hover:to-orange-50/90 dark:hover:from-yellow-900/40 dark:hover:to-orange-900/40',
+  },
 ]
 
 /** Statistics configuration */
@@ -355,6 +490,8 @@ const STATS_CARDS: StatCard[] = [
     darkGradientTo: 'dark:to-blue-800/20',
     labelKey: 'home.projectsCompleted',
     animationDelay: 0,
+    hoverRingColor: 'hover:ring-blue-400/60 dark:hover:ring-blue-500/60',
+    hoverBorderColor: 'hover:border-blue-400/80 dark:hover:border-blue-500/80',
   },
   {
     key: 'experience',
@@ -366,6 +503,8 @@ const STATS_CARDS: StatCard[] = [
     labelKey: 'home.yearsExperience',
     suffix: '+',
     animationDelay: 100,
+    hoverRingColor: 'hover:ring-green-400/60 dark:hover:ring-green-500/60',
+    hoverBorderColor: 'hover:border-green-400/80 dark:hover:border-green-500/80',
   },
   {
     key: 'datasets',
@@ -376,6 +515,8 @@ const STATS_CARDS: StatCard[] = [
     darkGradientTo: 'dark:to-purple-800/20',
     labelKey: 'home.dataProcessed',
     animationDelay: 200,
+    hoverRingColor: 'hover:ring-purple-400/60 dark:hover:ring-purple-500/60',
+    hoverBorderColor: 'hover:border-purple-400/80 dark:hover:border-purple-500/80',
   },
   {
     key: 'technologies',
@@ -386,6 +527,8 @@ const STATS_CARDS: StatCard[] = [
     darkGradientTo: 'dark:to-orange-800/20',
     labelKey: 'home.skills',
     animationDelay: 300,
+    hoverRingColor: 'hover:ring-orange-400/60 dark:hover:ring-orange-500/60',
+    hoverBorderColor: 'hover:border-orange-400/80 dark:hover:border-orange-500/80',
   },
 ]
 
