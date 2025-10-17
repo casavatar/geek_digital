@@ -1,5 +1,11 @@
 <template>
-  <div class="dashboard-card p-8 py-6">
+  <div :class="[
+    'relative overflow-hidden rounded-2xl p-8 py-6',
+    'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+    'border border-gray-200/40 dark:border-gray-700/40',
+    'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+    'transition-all duration-300'
+  ]">
     <!-- Section Header -->
     <div class="flex flex-col items-center text-center mb-12 py-4 space-y-4">
       <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
@@ -15,7 +21,7 @@
       <!-- Calendly Embed -->
       <div class="lg:col-span-2 py-2">
         <div
-          class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg py-3">
+          class="bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-gray-200/40 dark:border-gray-700/40 overflow-hidden shadow-xl py-3">
           <!-- Calendly Header -->
           <div
             class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
@@ -89,7 +95,7 @@
       <div class="flex flex-col gap-2 sm:gap-3 lg:gap-4">
         <!-- Meeting Types -->
         <div
-          class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-6 border border-blue-200 dark:border-blue-800 py-3">
+          class="bg-gradient-to-br from-blue-50/40 to-indigo-50/40 dark:from-blue-900/40 dark:to-indigo-900/40 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 border border-blue-200/40 dark:border-blue-800/40 shadow-xl shadow-blue-500/10 dark:shadow-blue-700/20 py-3">
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 py-2">Meeting Types</h3>
           <div class="space-y-4 py-2">
             <div class="flex items-start space-x-3 py-2">
@@ -123,7 +129,7 @@
         </div>
 
         <!-- Meeting Duration & Timezone -->
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 py-3">
+        <div class="bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-6 border border-gray-200/40 dark:border-gray-700/40 shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40 py-3">
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 py-2">Meeting Details</h3>
           <div class="space-y-4 py-2">
             <div class="flex items-center space-x-3 py-2">

@@ -1,18 +1,35 @@
 <!-- ChartsDemo.vue - Demo Dashboard showcasing Top 5 Business & Financial Charts -->
 <template>
-  <div class="space-y-6">
-    <!-- Page Header -->
-    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-        Business Analytics Dashboard
-      </h1>
-      <p class="text-gray-600 dark:text-gray-400">
-        Top 5 most used charts in financial and business sectors with Chart.js best practices
-      </p>
+  <div class="flex flex-col space-y-10">
+    <!-- Liquid Glass Header Section -->
+    <div
+      class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/20 to-gray-100/10 dark:from-gray-900/40 dark:to-gray-950/30 backdrop-blur-xl backdrop-saturate-150 border border-gray-200/40 dark:border-gray-700/40 shadow-lg shadow-blue-500/10 dark:shadow-blue-700/20 p-8 transition-all duration-300">
+      <!-- Ambient Background Gradient -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-600/10 dark:via-purple-600/10 dark:to-pink-600/10 pointer-events-none">
+      </div>
+
+      <div class="relative">
+        <div class="space-y-2">
+          <h1
+            class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 py-2">
+            Business Analytics Dashboard
+          </h1>
+          <p class="text-gray-600 dark:text-gray-400 text-base font-medium">
+            Top 5 most used charts in financial and business sectors with Chart.js best practices
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- 1. LINE CHART - Revenue Trend Analysis -->
-    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div :class="[
+      'relative overflow-hidden rounded-2xl p-6',
+      'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+      'border border-gray-200/40 dark:border-gray-700/40',
+      'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+      'transition-all duration-300'
+    ]">
       <div class="mb-4">
         <div class="flex items-center gap-2 mb-2">
           <span
@@ -34,7 +51,13 @@
     </div>
 
     <!-- 2. BAR CHART - Department Performance Comparison -->
-    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div :class="[
+      'relative overflow-hidden rounded-2xl p-6',
+      'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+      'border border-gray-200/40 dark:border-gray-700/40',
+      'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+      'transition-all duration-300'
+    ]">
       <div class="mb-4">
         <div class="flex items-center gap-2 mb-2">
           <span
@@ -56,7 +79,13 @@
     </div>
 
     <!-- 3. PIE CHART - Market Share Distribution -->
-    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div :class="[
+      'relative overflow-hidden rounded-2xl p-6',
+      'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+      'border border-gray-200/40 dark:border-gray-700/40',
+      'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+      'transition-all duration-300'
+    ]">
       <div class="mb-4">
         <div class="flex items-center gap-2 mb-2">
           <span
@@ -78,7 +107,13 @@
     </div>
 
     <!-- 4. AREA CHART - Cash Flow Analysis -->
-    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div :class="[
+      'relative overflow-hidden rounded-2xl p-6',
+      'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+      'border border-gray-200/40 dark:border-gray-700/40',
+      'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+      'transition-all duration-300'
+    ]">
       <div class="mb-4">
         <div class="flex items-center gap-2 mb-2">
           <span
@@ -100,7 +135,13 @@
     </div>
 
     <!-- 5. DOUGHNUT CHART - Portfolio Allocation -->
-    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div :class="[
+      'relative overflow-hidden rounded-2xl p-6',
+      'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+      'border border-gray-200/40 dark:border-gray-700/40',
+      'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+      'transition-all duration-300'
+    ]">
       <div class="mb-4">
         <div class="flex items-center gap-2 mb-2">
           <span
@@ -123,8 +164,13 @@
     </div>
 
     <!-- Best Practices Section -->
-    <div
-      class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-sm border border-blue-200 dark:border-gray-700 p-6">
+    <div :class="[
+      'relative overflow-hidden rounded-2xl p-6',
+      'bg-gradient-to-br from-blue-50/40 to-indigo-50/40 dark:from-gray-800/40 dark:to-gray-900/40',
+      'backdrop-blur-xl backdrop-saturate-150',
+      'border border-blue-200/40 dark:border-gray-700/40',
+      'shadow-xl shadow-blue-500/10 dark:shadow-blue-700/20'
+    ]">
       <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
         <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

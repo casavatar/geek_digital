@@ -34,3 +34,11 @@ src/assets/
 
 # Context folder
 context/
+
+# Claude folder
+*.claude
+
+# Claude files
+*claude.json
+*claude.txt
+*claude.md

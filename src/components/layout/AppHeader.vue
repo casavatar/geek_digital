@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50">
+  <header class="bg-white/20 dark:bg-gray-900/30 backdrop-blur-xl backdrop-saturate-150 shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40 border-b border-gray-200/40 dark:border-gray-700/40 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center py-4">
         <!-- Logo and Name Section -->
@@ -112,14 +112,14 @@
       <div
         v-show="isMobileMenuOpen"
         id="mobile-menu"
-        class="md:hidden border-t border-gray-200/50 dark:border-gray-700/50 py-4"
+        class="md:hidden border-t border-gray-200/40 dark:border-gray-700/40 py-4"
       >
         <div class="space-y-1">
           <router-link
             v-for="item in mainNavItems"
             :key="item.name"
             :to="item.route"
-            class="flex items-center px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-200"
+            class="flex items-center px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/30 dark:hover:bg-gray-800/30 backdrop-blur-md hover:shadow-lg hover:shadow-gray-900/10 dark:hover:shadow-gray-950/20 rounded-lg transition-all duration-200 hover:scale-[1.02]"
             :aria-current="isActiveRoute(item.route) ? 'page' : undefined"
             @click="closeMobileMenu"
           >

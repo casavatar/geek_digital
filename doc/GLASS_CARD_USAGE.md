@@ -15,12 +15,13 @@ The standard glass card with balanced spacing for most use cases.
 **Specifications:**
 
 - **Padding**: `py-5 px-6` (1.25rem vertical, 1.5rem horizontal)
-- **Background**: `bg-white/30 dark:bg-gray-800/30`
-- **Backdrop**: `backdrop-blur-xl backdrop-saturate-200`
+- **Background**: `bg-white/20 dark:bg-gray-800/30` (normalized opacity)
+- **Backdrop**: `backdrop-blur-xl backdrop-saturate-150`
 - **Border**: `border-gray-200/40 dark:border-gray-700/40`
-- **Shadows**: `shadow-lg` with hover effect `hover:shadow-xl`
+- **Shadows**: `shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40` with hover effect `hover:shadow-2xl`
 - **Border Radius**: `rounded-2xl` (1rem)
 - **Transitions**: `transition-all duration-300`
+- **Hover Effects**: `hover:scale-[1.03] hover:brightness-110`
 
 **Usage Example:**
 
@@ -178,10 +179,10 @@ For responsive grid systems (charts, stats, etc.), combine with Tailwind grid ut
 
 All glass cards automatically adapt to dark mode via Tailwind's `dark:` variant:
 
-- **Light Mode**: `bg-white/30` with `border-gray-200/40`
-- **Dark Mode**: `bg-gray-800/30` with `border-gray-700/40`
+- **Light Mode**: `bg-white/20` with `border-gray-200/40` and `shadow-gray-900/20`
+- **Dark Mode**: `bg-gray-800/30` with `border-gray-700/40` and `shadow-gray-950/40`
 
-No additional configuration required.
+No additional configuration required. The normalized opacity values ensure consistent visual hierarchy across both themes.
 
 ---
 
@@ -227,10 +228,15 @@ To convert existing cards to the glass-card system:
 </div>
 ```
 
-**After:**
+**After (with normalized liquid glass pattern):**
 
 ```vue
 <div class="glass-card">
+  Content
+</div>
+
+<!-- Or inline for custom cases: -->
+<div class="relative overflow-hidden rounded-2xl p-6 bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 border border-gray-200/40 dark:border-gray-700/40 shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40 transition-all duration-300 hover:scale-[1.03] hover:brightness-110">
   Content
 </div>
 ```
@@ -245,5 +251,8 @@ To convert existing cards to the glass-card system:
 - Maintain `space-y-5` or `gap-5` between siblings
 - Avoid nested padding utilities
 - All classes support dark mode automatically
+- **Normalized opacity values**: `/20` (light mode bg), `/30` (dark mode bg), `/40` (borders, gradients)
+- **Enhanced shadows**: `shadow-xl` with proper color values for depth
+- **Hover effects**: `hover:scale-[1.03]` and `hover:brightness-110` for interactivity
 
-For questions or enhancements, refer to [DashboardLayout.vue](../src/layouts/DashboardLayout.vue) and [main.css](../src/assets/main.css).
+For questions or enhancements, refer to [DashboardLayout.vue](../src/layouts/DashboardLayout.vue), [main.css](../src/assets/main.css), and [LIQUID_GLASS_VIEW_FORMAT.md](../context/LIQUID_GLASS_VIEW_FORMAT.md).

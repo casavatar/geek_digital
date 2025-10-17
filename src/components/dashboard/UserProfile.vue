@@ -1,8 +1,14 @@
 <template>
-  <article class="dashboard-card p-6 sm:p-8 lg:p-10">
+  <article :class="[
+    'relative overflow-hidden rounded-2xl p-6 sm:p-8 lg:p-10',
+    'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+    'border border-gray-200/40 dark:border-gray-700/40',
+    'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+    'transition-all duration-300'
+  ]">
     <!-- Profile Header with Glass Overlay -->
     <header
-      class="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8 mb-10 py-6 px-6 -mx-6 sm:-mx-8 lg:-mx-10 -mt-6 sm:-mt-8 lg:-mt-10from-white/40 to-gray-50/40 dark:from-gray-800/40 dark:to-gray-900/40 rounded-t-2xl backdrop-blur-sm border-b border-gray-200/30 dark:border-gray-700/30">
+      class="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8 mb-10 py-6 px-6 -mx-6 sm:-mx-8 lg:-mx-10 -mt-6 sm:-mt-8 lg:-mt-10 from-white/40 to-gray-50/40 dark:from-gray-800/40 dark:to-gray-900/40 rounded-t-2xl border-b border-gray-200/30 dark:border-gray-700/30">
       <!-- Profile Image -->
       <div class="relative flex-shrink-0">
         <img :src="personalInfo.avatar" :alt="`${personalInfo.name} profile picture`"
@@ -81,7 +87,7 @@
       <!-- Skills Grid with Glass Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         <div v-for="skill in skills" :key="skill.name"
-          class="group relative p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-md shadow-gray-200/50 dark:shadow-gray-900/50 transition-all duration-300 cursor-pointer hover:bg-gradient-to-br hover:shadow-lg hover:ring-2 hover:ring-offset-2 hover:ring-offset-white/50 dark:hover:ring-offset-gray-900/50 hover:scale-[1.02] hover:-translate-y-1"
+          class="group relative p-4 bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 rounded-xl border border-gray-200/40 dark:border-gray-700/40 shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40 transition-all duration-300 cursor-pointer hover:bg-gradient-to-br hover:shadow-2xl hover:ring-2 hover:ring-offset-2 hover:ring-offset-white/50 dark:hover:ring-offset-gray-900/50 hover:scale-[1.03] hover:-translate-y-1 hover:brightness-110"
           :class="[
             skill.hoverBorderColor,
             skill.hoverRingColor,
@@ -130,14 +136,14 @@
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 py-6">
         <div v-for="card in statsCards" :key="card.key" class="group text-center p-5
              bg-gradient-to-br
-             rounded-xl backdrop-blur-xl
-             backdrop-saturate-150 rounded-xl
+             rounded-2xl backdrop-blur-xl
+             backdrop-saturate-150
              border border-gray-200/40 dark:border-gray-700/40
-             shadow-md shadow-gray-200/30 dark:shadow-gray-900/30
+             shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40
              transition-all duration-300 ease-out transform
-             hover:-translate-y-2 hover:scale-105
+             hover:-translate-y-2 hover:scale-[1.05]
              hover:brightness-125 hover:saturate-150
-             hover:shadow-lg
+             hover:shadow-2xl
              cursor-pointer" :class="[
               card.gradientFrom,
               card.gradientTo,

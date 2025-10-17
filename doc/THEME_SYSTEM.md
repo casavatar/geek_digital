@@ -88,6 +88,25 @@ Use Tailwind's `dark:` variant for dark mode styles:
 <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white">Content adapts to theme</div>
 ```
 
+### Theme System with Liquid Glass Design
+
+The application's liquid glass design pattern uses theme-aware opacity values:
+
+```html
+<!-- Normalized glass pattern -->
+<div class="bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 border border-gray-200/40 dark:border-gray-700/40 shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40">
+  Glass container with proper dark mode support
+</div>
+```
+
+**Key differences between themes**:
+- **Light mode**: Uses `white/20` backgrounds with `gray-900/20` shadows
+- **Dark mode**: Uses `gray-800/30` backgrounds with `gray-950/40` shadows
+- **Borders**: Both use `/40` opacity for consistency
+- **Gradients**: Active states use `/40` opacity in both themes
+
+See [LIQUID-GLASS-DESIGN-GUIDE.md](./LIQUID-GLASS-DESIGN-GUIDE.md) for complete glass effect specifications.
+
 ## API Reference
 
 ### `useTheme()`

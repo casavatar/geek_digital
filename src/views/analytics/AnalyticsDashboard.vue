@@ -1,11 +1,20 @@
 <template>
-  <div class="space-y-6">
-    <!-- Page Header -->
-    <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
-      <div class="flex items-center justify-between">
-        <div>
-          <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Analytics Dashboard</h1>
-          <p class="text-gray-600 dark:text-gray-400 mt-2">
+  <div class="flex flex-col space-y-10">
+    <!-- Liquid Glass Header Section -->
+    <div
+      class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/20 to-gray-100/10 dark:from-gray-900/40 dark:to-gray-950/30 backdrop-blur-xl backdrop-saturate-150 border border-gray-200/40 dark:border-gray-700/40 shadow-lg shadow-blue-500/10 dark:shadow-blue-700/20 p-8 transition-all duration-300">
+      <!-- Ambient Background Gradient -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 dark:from-blue-600/10 dark:via-purple-600/10 dark:to-pink-600/10 pointer-events-none">
+      </div>
+
+      <div class="relative">
+        <div class="space-y-2">
+          <h1
+            class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 py-2">
+            Analytics Dashboard
+          </h1>
+          <p class="text-gray-600 dark:text-gray-400 text-base font-medium">
             Comprehensive analytics overview and key performance indicators
           </p>
         </div>
@@ -14,11 +23,19 @@
 
     <!-- Metrics Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-5">
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <div :class="[
+        'group relative overflow-hidden rounded-2xl p-6',
+        'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+        'border border-gray-200/40 dark:border-gray-700/40',
+        'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+        'transition-all duration-300 ease-out',
+        'hover:scale-[1.03] hover:brightness-110',
+        'hover:shadow-2xl hover:shadow-blue-500/20 dark:hover:shadow-blue-700/30'
+      ]">
         <div class="flex items-center justify-between">
           <div>
-            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total Users</p>
-            <p class="text-3xl font-bold text-gray-900 dark:text-white">12,345</p>
+            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 py-2">Total Users</p>
+            <p class="text-3xl font-bold text-gray-900 dark:text-white">12,34</p>
             <p class="text-sm text-green-600 dark:text-green-400 flex items-center mt-1">
               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
@@ -35,11 +52,19 @@
         </div>
       </div>
 
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <div :class="[
+        'group relative overflow-hidden rounded-2xl p-6',
+        'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+        'border border-gray-200/40 dark:border-gray-700/40',
+        'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+        'transition-all duration-300 ease-out',
+        'hover:scale-[1.03] hover:brightness-110',
+        'hover:shadow-2xl hover:shadow-green-500/20 dark:hover:shadow-green-700/30'
+      ]">
         <div class="flex items-center justify-between">
           <div>
-            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Revenue</p>
-            <p class="text-3xl font-bold text-gray-900 dark:text-white">$45,678</p>
+            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 py-2">Revenue</p>
+            <p class="text-3xl font-bold text-gray-900 dark:text-white">$45,6</p>
             <p class="text-sm text-green-600 dark:text-green-400 flex items-center mt-1">
               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
@@ -57,11 +82,19 @@
         </div>
       </div>
 
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <div :class="[
+        'group relative overflow-hidden rounded-2xl p-6',
+        'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+        'border border-gray-200/40 dark:border-gray-700/40',
+        'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+        'transition-all duration-300 ease-out',
+        'hover:scale-[1.03] hover:brightness-110',
+        'hover:shadow-2xl hover:shadow-purple-500/20 dark:hover:shadow-purple-700/30'
+      ]">
         <div class="flex items-center justify-between">
           <div>
-            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Conversion Rate</p>
-            <p class="text-3xl font-bold text-gray-900 dark:text-white">3.24%</p>
+            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 py-2">Conversion Rate</p>
+            <p class="text-3xl font-bold text-gray-900 dark:text-white">3.4%</p>
             <p class="text-sm text-red-600 dark:text-red-400 flex items-center mt-1">
               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6" />
@@ -79,11 +112,19 @@
         </div>
       </div>
 
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <div :class="[
+        'group relative overflow-hidden rounded-2xl p-6',
+        'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+        'border border-gray-200/40 dark:border-gray-700/40',
+        'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+        'transition-all duration-300 ease-out',
+        'hover:scale-[1.03] hover:brightness-110',
+        'hover:shadow-2xl hover:shadow-orange-500/20 dark:hover:shadow-orange-700/30'
+      ]">
         <div class="flex items-center justify-between">
           <div>
-            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Active Sessions</p>
-            <p class="text-3xl font-bold text-gray-900 dark:text-white">1,234</p>
+            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 py-2">Active Sessions</p>
+            <p class="text-3xl font-bold text-gray-900 dark:text-white">1,23</p>
             <p class="text-sm text-green-600 dark:text-green-400 flex items-center mt-1">
               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12" />
@@ -103,9 +144,15 @@
     </div>
 
     <!-- Analytics Charts -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-5">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <!-- User Growth Chart -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <div :class="[
+        'relative overflow-hidden rounded-2xl p-6',
+        'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+        'border border-gray-200/40 dark:border-gray-700/40',
+        'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+        'transition-all duration-300'
+      ]">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">User Growth</h3>
         <div class="h-80">
           <LineChart :labels="userGrowthData.labels" :datasets="userGrowthData.datasets" />
@@ -113,7 +160,13 @@
       </div>
 
       <!-- Revenue Trends Chart -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <div :class="[
+        'relative overflow-hidden rounded-2xl p-6',
+        'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+        'border border-gray-200/40 dark:border-gray-700/40',
+        'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+        'transition-all duration-300'
+      ]">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Revenue Trends</h3>
         <div class="h-80">
           <AreaChart :labels="revenueData.labels" :datasets="revenueData.datasets" :currency="true" :stacked="true" />
@@ -124,7 +177,13 @@
     <!-- Additional Analytics Charts -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 py-5">
       <!-- Traffic Sources -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <div :class="[
+        'relative overflow-hidden rounded-2xl p-6',
+        'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+        'border border-gray-200/40 dark:border-gray-700/40',
+        'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+        'transition-all duration-300'
+      ]">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Traffic Sources</h3>
         <div class="h-80">
           <ChartDoughnutChart :labels="trafficSourcesData.labels" :datasets="trafficSourcesData.datasets"
@@ -133,7 +192,13 @@
       </div>
 
       <!-- Conversion by Channel -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <div :class="[
+        'relative overflow-hidden rounded-2xl p-6',
+        'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+        'border border-gray-200/40 dark:border-gray-700/40',
+        'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+        'transition-all duration-300'
+      ]">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Conversion by Channel</h3>
         <div class="h-80">
           <ChartBarChart :labels="conversionData.labels" :datasets="conversionData.datasets" :percentage="true"
@@ -142,7 +207,13 @@
       </div>
 
       <!-- Device Distribution -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <div :class="[
+        'relative overflow-hidden rounded-2xl p-6',
+        'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+        'border border-gray-200/40 dark:border-gray-700/40',
+        'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+        'transition-all duration-300'
+      ]">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Device Distribution</h3>
         <div class="h-80">
           <PieChart :labels="deviceData.labels" :datasets="deviceData.datasets" :percentage="true"

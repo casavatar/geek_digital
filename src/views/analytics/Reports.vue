@@ -11,7 +11,7 @@
       <div class="relative flex items-center justify-between">
         <div class="space-y-2">
           <h1
-            class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300">
+            class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 py-2">
             Reports
           </h1>
           <p class="text-gray-600 dark:text-gray-400 text-base font-medium">
@@ -33,7 +33,7 @@
 
           <!-- New Report Button with Glow -->
           <button aria-label="Create new report"
-            class="group relative px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-semibold rounded-lg shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500/40 hover:ring-2 hover:ring-offset-2 hover:ring-blue-500/40 hover:scale-105">
+            class="group relative w-35 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-semibold rounded-lg shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500/40 hover:ring-2 hover:ring-offset-2 hover:ring-blue-500/40 hover:scale-105">
             <span class="flex items-center space-x-2">
               <svg class="w-4 h-4 transition-transform group-hover:rotate-90 duration-300" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@
 
     <!-- Reports Grid with TransitionGroup Animation -->
     <TransitionGroup v-if="filteredReports.length > 0" name="report-card" tag="div"
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-5">
       <div v-for="report in filteredReports" :key="report.id" :class="[
         'group relative overflow-hidden rounded-2xl p-6 py-5',
         'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
@@ -98,7 +98,7 @@
 
           <!-- Report Title -->
           <h3
-            class="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+            class="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 py-2">
             {{ report.title }}
           </h3>
 

@@ -1,5 +1,11 @@
 <template>
-  <div class="dashboard-card p-8">
+  <div :class="[
+    'relative overflow-hidden rounded-2xl p-8',
+    'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+    'border border-gray-200/40 dark:border-gray-700/40',
+    'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+    'transition-all duration-300'
+  ]">
     <!-- Section Header -->
     <div class="flex flex-col items-center text-center mb-12 py-4 space-y-4">
       <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
@@ -116,7 +122,7 @@
             <!-- Email -->
             <div class="transition-transform duration-300 hover:-translate-y-1">
               <a href="mailto:ing.ekastel@gmail.com"
-                class="group flex items-center space-x-4 p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 rounded-xl border border-purple-200/50 dark:border-purple-800/50 hover:border-purple-400/70 dark:hover:border-purple-600/70 transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/30 ring-2 ring-transparent hover:ring-purple-500/50 hover:ring-offset-2 hover:scale-[1.02]">
+                class="group flex items-center space-x-4 p-4 bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 rounded-xl border border-purple-200/40 dark:border-purple-800/40 hover:border-purple-400/70 dark:hover:border-purple-600/70 transition-all duration-200 hover:shadow-xl hover:shadow-purple-500/30 hover:brightness-110 ring-2 ring-transparent hover:ring-purple-500/50 hover:ring-offset-2 hover:scale-[1.03]">
                 <div
                   class="w-12 h-12 bg-purple-100/80 dark:bg-purple-900/30 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                   <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor"
@@ -141,7 +147,7 @@
             <div>
               <a href="https://www.linkedin.com/in/eduardo-castellanos-466a5871/" target="_blank"
                 rel="noopener noreferrer"
-                class="group flex items-center space-x-4 p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 rounded-xl border border-blue-200/50 dark:border-blue-800/50 hover:border-blue-400/70 dark:hover:border-blue-600/70 transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/30 ring-2 ring-transparent hover:ring-blue-500/50 hover:ring-offset-2 hover:scale-[1.02]">
+                class="group flex items-center space-x-4 p-4 bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 rounded-xl border border-blue-200/40 dark:border-blue-800/40 hover:border-blue-400/70 dark:hover:border-blue-600/70 transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/30 hover:brightness-110 ring-2 ring-transparent hover:ring-blue-500/50 hover:ring-offset-2 hover:scale-[1.03]">
                 <div
                   class="w-12 h-12 bg-blue-100/80 dark:bg-blue-900/30 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                   <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
@@ -164,7 +170,7 @@
             <!-- GitHub -->
             <div>
               <a href="https://github.com/casavatar" target="_blank" rel="noopener noreferrer"
-                class="group flex items-center space-x-4 p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 rounded-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-gray-400/70 dark:hover:border-gray-500/70 transition-all duration-200 hover:shadow-lg hover:shadow-gray-500/30 ring-2 ring-transparent hover:ring-gray-500/50 hover:ring-offset-2 hover:scale-[1.02]">
+                class="group flex items-center space-x-4 p-4 bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 rounded-xl border border-gray-200/40 dark:border-gray-700/40 hover:border-gray-400/70 dark:hover:border-gray-500/70 transition-all duration-200 hover:shadow-xl hover:shadow-gray-500/30 hover:brightness-110 ring-2 ring-transparent hover:ring-gray-500/50 hover:ring-offset-2 hover:scale-[1.03]">
                 <div
                   class="w-12 h-12 bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                   <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
@@ -184,7 +190,7 @@
 
             <!-- Response Time Info -->
             <div
-              class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 rounded-xl p-6 border border-green-200/50 dark:border-green-800/50 shadow-lg shadow-green-500/20 hover:scale-[1.01] transition-transform duration-200">
+              class="bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 rounded-xl p-6 border border-green-200/40 dark:border-green-800/40 shadow-xl shadow-green-500/20 hover:scale-[1.02] hover:brightness-110 transition-all duration-200">
               <div class="flex items-start space-x-3">
                 <div
                   class="w-8 h-8 bg-green-100/80 dark:bg-green-900/30 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">

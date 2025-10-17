@@ -8,15 +8,15 @@ This guide documents the liquid glass (glassmorphism) design implementation in t
 
 ### 1. **Transparency & Blur**
 
-- Use semi-transparent backgrounds (`/80` opacity for main surfaces)
+- Use semi-transparent backgrounds (`/20` opacity for light mode, `/30` for dark mode on main surfaces)
 - Apply `backdrop-blur-xl` for the glass blur effect
 - Add `backdrop-saturate-150` to enhance color vibrancy through the glass
 
 ### 2. **Layering & Depth**
 
 - Create visual hierarchy using shadows and borders
-- Use subtle borders with transparency (`border-gray-200/50`)
-- Apply layered shadows for depth (`shadow-lg shadow-gray-200/50`)
+- Use subtle borders with transparency (`border-gray-200/40 dark:border-gray-700/40`)
+- Apply layered shadows for depth (`shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40`)
 
 ### 3. **Smooth Interactions**
 
@@ -32,29 +32,29 @@ This guide documents the liquid glass (glassmorphism) design implementation in t
 
 ```vue
 <div
-  class="flex flex-col h-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 border-r border-gray-200/50 dark:border-gray-700/50 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50"
+  class="flex flex-col h-full bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 border-r border-gray-200/40 dark:border-gray-700/40 shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40"
 ></div>
 ```
 
 **Key Classes:**
 
-- `bg-white/80 dark:bg-gray-800/80` - Semi-transparent background
+- `bg-white/20 dark:bg-gray-800/30` - Semi-transparent background (normalized opacity)
 - `backdrop-blur-xl` - Strong blur effect for glass appearance
 - `backdrop-saturate-150` - Enhanced color saturation
-- `border-gray-200/50 dark:border-gray-700/50` - Subtle border with 50% opacity
-- `shadow-lg shadow-gray-200/50` - Layered shadow for depth
+- `border-gray-200/40 dark:border-gray-700/40` - Subtle border with 40% opacity
+- `shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40` - Enhanced layered shadow for depth
 
 #### Header Section
 
 ```vue
 <div
-  class="p-6 border-b border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-gray-800/50 dark:to-gray-900/50"
+  class="p-6 border-b border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-br from-white/40 to-gray-50/40 dark:from-gray-800/40 dark:to-gray-900/40"
 ></div>
 ```
 
 **Features:**
 
-- Gradient overlay for visual interest
+- Gradient overlay for visual interest with normalized `/40` opacity
 - Lower border opacity (`/30`) for subtle separation
 - Icon container with ring, shadow, and hover scale effect
 
@@ -63,7 +63,7 @@ This guide documents the liquid glass (glassmorphism) design implementation in t
 **Active State:**
 
 ```vue
-class="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30
+class="bg-gradient-to-r from-blue-50/40 to-indigo-50/40 dark:from-blue-900/40 dark:to-indigo-900/40
 text-blue-600 dark:text-blue-400 shadow-lg shadow-blue-500/20 ring-2 ring-blue-100/50
 dark:ring-blue-900/50 backdrop-blur-md"
 ```
@@ -72,27 +72,27 @@ dark:ring-blue-900/50 backdrop-blur-md"
 
 ```vue
 class="hover:bg-white/60 dark:hover:bg-gray-700/60 backdrop-blur-sm hover:shadow-md
-hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50 hover:scale-[1.02]"
+hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50 hover:scale-[1.02] hover:brightness-110"
 ```
 
 **Features:**
 
-- Gradient backgrounds for active items
+- Gradient backgrounds for active items with normalized `/40` opacity
 - Ring borders for emphasis
-- Micro-interactions with scale transform
+- Micro-interactions with scale transform and brightness enhancement
 - Enhanced shadows on hover
 
 #### Footer Section
 
 ```vue
 <div
-  class="p-4 border-t border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-t from-white/50 to-transparent dark:from-gray-800/50"
+  class="p-4 border-t border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-t from-white/40 to-transparent dark:from-gray-800/40"
 ></div>
 ```
 
 **Features:**
 
-- Gradient fade from solid to transparent
+- Gradient fade from solid to transparent with normalized `/40` opacity
 - Subtle top border
 - Reduced opacity text for hierarchy
 
@@ -100,9 +100,10 @@ hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50 hover:scale-[1.02]"
 
 ### Opacity Levels
 
-- **High Transparency**: `/30` - Borders, separators
-- **Medium Transparency**: `/50` - Hover states, overlays
-- **Low Transparency**: `/80` - Main surfaces
+- **High Transparency**: `/20` - Main surfaces (light mode)
+- **Medium-High Transparency**: `/30` - Main surfaces (dark mode), borders, separators
+- **Medium Transparency**: `/40` - Gradients, secondary surfaces, active states
+- **Hover States**: `/60` - Interactive element hover backgrounds
 - **Full Opacity**: `/100` or no suffix - Text, icons
 
 ### Border Radius
@@ -115,7 +116,8 @@ hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50 hover:scale-[1.02]"
 
 - **Subtle**: `shadow-sm shadow-{color}/30` - Submenus
 - **Medium**: `shadow-md shadow-{color}/50` - Hover states
-- **Strong**: `shadow-lg shadow-{color}/50` - Main containers, active items
+- **Strong**: `shadow-lg shadow-{color}/20` - Active items, colored accents
+- **Extra Strong**: `shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40` - Main containers, cards
 
 ### Blur Levels
 
@@ -127,19 +129,19 @@ hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50 hover:scale-[1.02]"
 
 ### Light Mode
 
-- Background: `white/80`
+- Background: `white/20` (main containers), `white/40` (gradients)
 - Text: `gray-700`, `gray-600`, `gray-900`
-- Borders: `gray-200/30` to `gray-200/50`
-- Shadows: `gray-200/50`
-- Accent: `blue-600`, gradients from `blue-50` to `indigo-50`
+- Borders: `gray-200/30` to `gray-200/40`
+- Shadows: `gray-900/20` (main), colored shadows at `/10` to `/30`
+- Accent: `blue-600`, gradients from `blue-50/40` to `indigo-50/40`
 
 ### Dark Mode
 
-- Background: `gray-800/80`
+- Background: `gray-800/30` (main containers), `gray-800/40` (gradients)
 - Text: `gray-300`, `gray-400`, `white`
-- Borders: `gray-700/30` to `gray-700/50`
-- Shadows: `gray-900/50`
-- Accent: `blue-400`, gradients from `blue-900` to `indigo-900`
+- Borders: `gray-700/30` to `gray-700/40`
+- Shadows: `gray-950/40` (main), colored shadows at `/20` to `/40`
+- Accent: `blue-400`, gradients from `blue-900/40` to `indigo-900/40`
 
 ## Accessibility Considerations
 
@@ -188,10 +190,11 @@ Consider adding:
 
 ✅ Layer multiple blur and transparency effects for depth
 ✅ Use gradients subtly (low opacity differences)
-✅ Maintain consistent border and shadow opacity ratios
+✅ Maintain consistent border and shadow opacity ratios (borders: `/40`, shadows: `/20` light, `/40` dark)
 ✅ Test in both light and dark modes
-✅ Add hover states with slightly increased opacity
+✅ Add hover states with brightness enhancement (`hover:brightness-110`)
 ✅ Use `backdrop-saturate` to enhance colors
+✅ Use normalized opacity values: `/20` (light bg), `/30` (dark bg), `/40` (gradients)
 
 ### DON'T
 
@@ -201,6 +204,7 @@ Consider adding:
 ❌ Apply blur without transparency
 ❌ Use glass effects on text
 ❌ Neglect performance (blur is expensive)
+❌ Mix old opacity values (`/50`, `/80`) with normalized values (`/20`, `/30`, `/40`)
 
 ## Performance Tips
 
@@ -235,16 +239,16 @@ class="bg-white/30 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150"
 ### Header Bar
 
 ```vue
-class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 border-b
-border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-30 shadow-sm shadow-gray-200/50
-dark:shadow-gray-900/50"
+class="bg-white/20 dark:bg-gray-900/30 backdrop-blur-xl backdrop-saturate-150 border-b
+border-gray-200/40 dark:border-gray-700/40 sticky top-0 z-50 shadow-xl shadow-gray-900/20
+dark:shadow-gray-950/40"
 ```
 
 ### Mobile Overlay
 
 ```vue
-class="bg-white/30 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 border-r
-border-gray-200/50 dark:border-gray-700/50 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50"
+class="bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 border-r
+border-gray-200/40 dark:border-gray-700/40 shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40"
 ```
 
 ### Glass Button

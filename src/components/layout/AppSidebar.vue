@@ -1,10 +1,10 @@
 <template>
   <!-- Liquid Glass Sidebar Container -->
   <div
-    class="flex flex-col h-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 border-r border-gray-200/50 dark:border-gray-700/50 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50">
+    class="flex flex-col h-full bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 border-r border-gray-200/40 dark:border-gray-700/40 shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40">
     <!-- Sidebar Header with Glass Effect -->
     <div
-      class="p-6 border-b border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-gray-800/50 dark:to-gray-900/50">
+      class="p-6 border-b border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-br from-white/40 to-gray-50/40 dark:from-gray-800/40 dark:to-gray-900/40">
       <div class="flex items-center space-x-3">
         <!-- Glass Icon Container -->
         <div
@@ -25,9 +25,9 @@
       <template v-for="item in mainNavItems" :key="item.name">
         <!-- Simple Link (no children) with Glass Effect -->
         <router-link v-if="!item.children" :to="item.route" @click="handleNavigation"
-          class="flex items-center space-x-3 px-4 py-3 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-white/60 dark:hover:bg-gray-700/60 backdrop-blur-sm transition-all duration-200 group hover:shadow-md hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50 hover:scale-[1.02]"
+          class="flex items-center space-x-3 px-4 py-3 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-white/60 dark:hover:bg-gray-700/60 backdrop-blur-sm transition-all duration-200 group hover:shadow-md hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50 hover:scale-[1.02] hover:brightness-110"
           :class="{
-            'bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-600 dark:text-blue-400 shadow-lg shadow-blue-500/20 ring-2 ring-blue-100/50 dark:ring-blue-900/50 backdrop-blur-md':
+            'bg-gradient-to-r from-blue-50/40 to-indigo-50/40 dark:from-blue-900/40 dark:to-indigo-900/40 text-blue-600 dark:text-blue-400 shadow-lg shadow-blue-500/20 ring-2 ring-blue-100/50 dark:ring-blue-900/50 backdrop-blur-md':
               isActiveRoute(item.route),
           }">
           <Icon :name="item.icon"
@@ -54,9 +54,9 @@
           <!-- Submenu with Glass Effect -->
           <div v-show="expandedSections[item.name]" class="ml-8 space-y-1">
             <router-link v-for="child in item.children" :key="child.name" :to="child.route" @click="handleNavigation"
-              class="flex items-center space-x-3 px-4 py-2 text-sm text-gray-600 dark:text-gray-400 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/50 backdrop-blur-sm transition-all duration-200 hover:shadow-sm hover:shadow-gray-200/30 dark:hover:shadow-gray-900/30"
+              class="flex items-center space-x-3 px-4 py-2 text-sm text-gray-600 dark:text-gray-400 rounded-lg hover:bg-white/50 dark:hover:bg-gray-700/50 backdrop-blur-sm transition-all duration-200 hover:shadow-sm hover:shadow-gray-200/30 dark:hover:shadow-gray-900/30 hover:brightness-110"
               :class="{
-                'bg-gradient-to-r from-blue-50/70 to-indigo-50/70 dark:from-blue-900/25 dark:to-indigo-900/25 text-blue-600 dark:text-blue-400 shadow-md shadow-blue-500/10 ring-1 ring-blue-100/50 dark:ring-blue-900/50 backdrop-blur-sm':
+                'bg-gradient-to-r from-blue-50/40 to-indigo-50/40 dark:from-blue-900/40 dark:to-indigo-900/40 text-blue-600 dark:text-blue-400 shadow-md shadow-blue-500/10 ring-1 ring-blue-100/50 dark:ring-blue-900/50 backdrop-blur-sm':
                   isActiveRoute(child.route),
               }">
               <Icon :name="child.icon" size="sm"
@@ -70,7 +70,7 @@
 
     <!-- Sidebar Footer with Glass Effect -->
     <div
-      class="p-4 border-t border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-t from-white/50 to-transparent dark:from-gray-800/50">
+      class="p-4 border-t border-gray-200/30 dark:border-gray-700/30 bg-gradient-to-t from-white/40 to-transparent dark:from-gray-800/40">
       <div class="text-xs text-gray-600 dark:text-gray-400 text-center space-y-1">
         <p class="font-medium">Data Engineering Portfolio</p>
         <p class="opacity-75">© {{ currentYear }} Eduardo Castellanos</p>

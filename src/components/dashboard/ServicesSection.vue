@@ -1,5 +1,11 @@
 <template>
-  <div class="dashboard-card p-8 py-8">
+  <div :class="[
+    'relative overflow-hidden rounded-2xl p-8 py-8',
+    'bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150',
+    'border border-gray-200/40 dark:border-gray-700/40',
+    'shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40',
+    'transition-all duration-300'
+  ]">
     <!-- Section Header -->
     <div class="flex flex-col items-center text-center mb-12 py-4 space-y-4">
       <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
@@ -13,7 +19,7 @@
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-4">
       <div v-for="service in services" :key="service.id"
-        class="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 py-6 border border-gray-200/50 dark:border-gray-700/50 shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-blue-500/20 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer hover:border-blue-400/80 dark:hover:border-blue-500/80 hover:ring-2 hover:ring-blue-400/50 dark:hover:ring-blue-500/50 hover:ring-offset-2 hover:ring-offset-white/50 dark:hover:ring-offset-gray-900/50">
+        class="group relative bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 py-6 border border-gray-200/40 dark:border-gray-700/40 shadow-xl shadow-gray-900/20 dark:shadow-gray-950/40 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 dark:hover:shadow-blue-500/20 hover:-translate-y-2 hover:scale-[1.03] hover:brightness-110 cursor-pointer hover:border-blue-400/80 dark:hover:border-blue-500/80 hover:ring-2 hover:ring-blue-400/50 dark:hover:ring-blue-500/50 hover:ring-offset-2 hover:ring-offset-white/50 dark:hover:ring-offset-gray-900/50">
         <!-- Service Icon -->
         <div
           class="w-16 h-16 bg-gradient-to-br from-blue-50/90 to-indigo-50/90 dark:from-blue-900/40 dark:to-indigo-900/40 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 py-2 shadow-lg shadow-blue-200/50 dark:shadow-blue-900/50 ring-2 ring-blue-200/50 dark:ring-blue-800/50 group-hover:scale-110 group-hover:shadow-xl group-hover:ring-blue-300/60 dark:group-hover:ring-blue-700/60 transition-all duration-300">
@@ -49,7 +55,7 @@
     <!-- Call to Action -->
     <div class="mt-12 text-center py-6">
       <div
-        class="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/30 dark:to-indigo-900/30 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 py-8 border border-blue-200/50 dark:border-blue-800/50 shadow-lg shadow-blue-200/50 dark:shadow-blue-900/50">
+        class="bg-gradient-to-r from-blue-50/40 to-indigo-50/40 dark:from-blue-900/40 dark:to-indigo-900/40 backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-8 py-8 border border-blue-200/40 dark:border-blue-800/40 shadow-xl shadow-blue-500/10 dark:shadow-blue-700/20">
         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 py-2 drop-shadow-sm">
           {{ $t('services.cta') }}
         </h3>
