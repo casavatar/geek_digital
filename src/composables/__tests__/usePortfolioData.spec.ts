@@ -65,7 +65,7 @@ describe('usePortfolioData', () => {
     expect(firstProject).toHaveProperty('title')
     expect(firstProject).toHaveProperty('description')
     expect(firstProject).toHaveProperty('impact')
-    expect(firstProject).toHaveProperty('icon')
+    expect(firstProject).toHaveProperty('iconPath')
     expect(firstProject).toHaveProperty('technologies')
     expect(firstProject).toHaveProperty('liveUrl')
     expect(firstProject).toHaveProperty('githubUrl')
@@ -129,7 +129,7 @@ describe('usePortfolioData', () => {
       title: 'Test Project',
       description: 'A test project',
       impact: 'Test impact',
-      icon: '<svg>test</svg>',
+      iconPath: 'M12 2L2 7l10 5 10-5-10-5z',
       technologies: ['Vue.js', 'TypeScript'],
       liveUrl: 'https://test.com',
       githubUrl: 'https://github.com/test'
@@ -156,11 +156,13 @@ describe('usePortfolioData', () => {
     
     const updatedProject = updateProject(projectId, updates)
     await nextTick()
-    
+
     expect(updatedProject).not.toBeNull()
-    expect(updatedProject.title).toBe('Updated Title')
-    expect(updatedProject.description).toBe('Updated Description')
-    expect(updatedProject.id).toBe(projectId)
+    if (updatedProject) {
+      expect(updatedProject.title).toBe('Updated Title')
+      expect(updatedProject.description).toBe('Updated Description')
+      expect(updatedProject.id).toBe(projectId)
+    }
   })
 
   it('should return null when updating non-existent project', async () => {
@@ -255,7 +257,7 @@ describe('usePortfolioData', () => {
       title: 'Reactive Test',
       description: 'Testing reactivity',
       impact: 'Test impact',
-      icon: '<svg>test</svg>',
+      iconPath: 'M12 2L2 7l10 5 10-5-10-5z',
       technologies: ['New Technology'],
       liveUrl: 'https://test.com',
       githubUrl: 'https://github.com/test'

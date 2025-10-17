@@ -8,11 +8,10 @@
     >
       <Icon name="globe-alt" size="sm" />
       <span class="hidden sm:inline">{{ currentLanguage.name }}</span>
-      <Icon 
-        :name="isOpen ? 'chevron-up' : 'chevron-down'" 
-        size="xs" 
-        class="transition-transform duration-200"
-        :class="{ 'rotate-180': isOpen }"
+      <Icon
+        :name="isOpen ? 'chevron-up' : 'chevron-down'"
+        size="xs"
+        :class="`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`"
       />
     </button>
 

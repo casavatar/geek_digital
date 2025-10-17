@@ -3,7 +3,7 @@ export interface Project {
   title: string
   description: string
   impact: string
-  icon: string
+  iconPath: string
   technologies: string[]
   image?: string
   liveUrl?: string

@@ -210,7 +210,7 @@ describe('useScrollAnimation', () => {
     
     // Simulate elementRef change
     const newElement = document.createElement('div')
-    wrapper.vm.elementRef = newElement
+    wrapper.vm.elementRef.value = newElement
     await nextTick()
     
     expect(mockUnobserve).toHaveBeenCalledWith(initialElement)

@@ -91,14 +91,14 @@ describe('useTheme', () => {
   it('should toggle theme correctly', async () => {
     const wrapper = mount(TestComponent)
     await nextTick()
-    
+
     expect(wrapper.text()).toBe('light')
-    
+
     // Get the composable instance
-    const { toggleDarkMode } = wrapper.vm
+    const { toggleDarkMode } = wrapper.vm as any
     toggleDarkMode()
     await nextTick()
-    
+
     expect(wrapper.text()).toBe('dark')
     expect(localStorageMock.setItem).toHaveBeenCalledWith('theme', 'dark')
     expect(mockDocumentElement.classList.toggle).toHaveBeenCalledWith('dark', true)

@@ -26,7 +26,7 @@ describe('StatusBadge', () => {
 
     statuses.forEach(({ status, expectedLabel }) => {
       const wrapper = mount(StatusBadge, {
-        props: { status }
+        props: { status: status as 'online' | 'offline' | 'busy' | 'pending' | 'error' | 'success' }
       })
       expect(wrapper.text()).toContain(expectedLabel)
     })
@@ -123,9 +123,9 @@ describe('StatusBadge', () => {
 
     statuses.forEach(({ status, expectedClass }) => {
       const wrapper = mount(StatusBadge, {
-        props: { status }
+        props: { status: status as 'online' | 'offline' | 'busy' | 'pending' | 'error' | 'success' }
       })
-      
+
       const dot = wrapper.find('.w-2.h-2')
       expect(dot.classes()).toContain(expectedClass)
     })
@@ -153,8 +153,8 @@ describe('StatusBadge', () => {
   })
 
   it('maintains consistent styling across different statuses', () => {
-    const statuses = ['online', 'offline', 'busy', 'pending', 'error', 'success']
-    
+    const statuses = ['online', 'offline', 'busy', 'pending', 'error', 'success'] as const
+
     statuses.forEach(status => {
       const wrapper = mount(StatusBadge, {
         props: { status }

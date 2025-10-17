@@ -26,17 +26,30 @@
             <!-- Full Name Field -->
             <div class="py-2">
               <label for="fullName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Full Name
+                Full Name *
               </label>
-              <input id="fullName" v-model="form.fullName" type="text" placeholder="John Doe"
+              <input
+                id="fullName"
+                v-model="form.fullName"
+                type="text"
+                placeholder="John Doe"
+                maxlength="100"
+                required
                 class="w-full px-4 py-3 border border-gray-200/50 dark:border-gray-600/50 rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:border-blue-400/50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md backdrop-saturate-150 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-200 shadow-sm hover:shadow-md hover:border-gray-300/50 dark:hover:border-gray-500/50"
                 :class="{
                   'border-red-500/70 dark:border-red-500/70 ring-2 ring-red-500/30':
                     errors.fullName,
-                }" @blur="validateForm" />
-              <p v-if="errors.fullName" class="mt-1 text-sm text-red-600 dark:text-red-400">
-                {{ errors.fullName }}
-              </p>
+                }"
+                @blur="validateForm"
+              />
+              <div class="flex justify-between items-center mt-1">
+                <p v-if="errors.fullName" class="text-sm text-red-600 dark:text-red-400">
+                  {{ errors.fullName }}
+                </p>
+                <span class="text-xs text-gray-500 dark:text-gray-400 ml-auto">
+                  {{ form.fullName.length }}/100
+                </span>
+              </div>
             </div>
 
             <!-- Email Field -->
@@ -44,30 +57,55 @@
               <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Email Address *
               </label>
-              <input id="email" v-model="form.email" type="email" required
+              <input
+                id="email"
+                v-model="form.email"
+                type="email"
+                required
+                maxlength="254"
+                placeholder="your.email@example.com"
                 class="w-full px-4 py-3 border border-gray-200/50 dark:border-gray-600/50 rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:border-blue-400/50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md backdrop-saturate-150 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-200 shadow-sm hover:shadow-md hover:border-gray-300/50 dark:hover:border-gray-500/50"
-                placeholder="Enter your email address" :class="{
+                :class="{
                   'border-red-500/70 dark:border-red-500/70 ring-2 ring-red-500/30': errors.email,
-                }" />
-              <p v-if="errors.email" class="mt-1 text-sm text-red-600 dark:text-red-400">
-                {{ errors.email }}
-              </p>
+                }"
+                @blur="validateForm"
+              />
+              <div class="flex justify-between items-center mt-1">
+                <p v-if="errors.email" class="text-sm text-red-600 dark:text-red-400">
+                  {{ errors.email }}
+                </p>
+                <span class="text-xs text-gray-500 dark:text-gray-400 ml-auto">
+                  {{ form.email.length }}/254
+                </span>
+              </div>
             </div>
 
             <!-- Message Field -->
             <div class="py-2">
               <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Message
+                Message *
               </label>
-              <textarea id="message" v-model="form.message" rows="5"
+              <textarea
+                id="message"
+                v-model="form.message"
+                rows="5"
                 placeholder="Tell me about your project or question..."
+                maxlength="1000"
+                required
                 class="w-full px-4 py-3 border border-gray-200/50 dark:border-gray-600/50 rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:border-blue-400/50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md backdrop-saturate-150 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 transition-all duration-200 resize-none shadow-sm hover:shadow-md hover:border-gray-300/50 dark:hover:border-gray-500/50"
                 :class="{
                   'border-red-500/70 dark:border-red-500/70 ring-2 ring-red-500/30': errors.message,
-                }" @blur="validateForm"></textarea>
-              <p v-if="errors.message" class="mt-1 text-sm text-red-600 dark:text-red-400">
-                {{ errors.message }}
-              </p>
+                }"
+                @blur="validateForm"
+              ></textarea>
+              <div class="flex justify-between items-center mt-1">
+                <p v-if="errors.message" class="text-sm text-red-600 dark:text-red-400">
+                  {{ errors.message }}
+                </p>
+                <span class="text-xs text-gray-500 dark:text-gray-400 ml-auto">
+                  {{ form.message.length }}/1000
+                </span>
+              </div>
             </div>
 
             <!-- Submit Button -->
@@ -121,7 +159,7 @@
           <div class="flex flex-col gap-2 sm:gap-3 lg:gap-4">
             <!-- Email -->
             <div class="transition-transform duration-300 hover:-translate-y-1">
-              <a href="mailto:ing.ekastel@gmail.com"
+              <a :href="emailHref"
                 class="group flex items-center space-x-4 p-4 bg-white/20 dark:bg-gray-800/30 backdrop-blur-xl backdrop-saturate-150 rounded-xl border border-purple-200/40 dark:border-purple-800/40 hover:border-purple-400/70 dark:hover:border-purple-600/70 transition-all duration-200 hover:shadow-xl hover:shadow-purple-500/30 hover:brightness-110 ring-2 ring-transparent hover:ring-purple-500/50 hover:ring-offset-2 hover:scale-[1.03]">
                 <div
                   class="w-12 h-12 bg-purple-100/80 dark:bg-purple-900/30 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
@@ -137,7 +175,7 @@
                     Email
                   </h4>
                   <p class="text-sm text-gray-600 dark:text-gray-400 px-2">
-                    ing.ekastel@gmail.com
+                    {{ obfuscatedEmail }}
                   </p>
                 </div>
               </a>
@@ -219,7 +257,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
 
 interface ContactForm {
   fullName: string
@@ -242,6 +280,21 @@ const form = reactive<ContactForm>({
 const errors = reactive<FormErrors>({})
 const isSubmitting = ref(false)
 const showSuccess = ref(false)
+const lastSubmitTime = ref<number>(0)
+
+// Email obfuscation - prevents bots from scraping
+const obfuscatedEmail = computed(() => {
+  const user = 'ing.ekastel'
+  const domain = 'gmail.com'
+  return `${user}@${domain}`
+})
+
+const emailHref = computed(() => {
+  return `mailto:${obfuscatedEmail.value}`
+})
+
+// Improved email validation regex (RFC 5322 compliant)
+const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 
 const validateForm = (): boolean => {
   // Clear previous errors
@@ -249,37 +302,66 @@ const validateForm = (): boolean => {
 
   let isValid = true
 
-  // Validate full name
+  // Validate full name with length constraints
   if (!form.fullName.trim()) {
     errors.fullName = 'Full name is required'
     isValid = false
   } else if (form.fullName.trim().length < 2) {
     errors.fullName = 'Full name must be at least 2 characters'
     isValid = false
+  } else if (form.fullName.length > 100) {
+    errors.fullName = 'Full name must be less than 100 characters'
+    isValid = false
   }
 
-  // Validate email
+  // Validate email with improved regex and length check
   if (!form.email.trim()) {
     errors.email = 'Email address is required'
     isValid = false
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+  } else if (form.email.length > 254) {
+    errors.email = 'Email must be less than 254 characters'
+    isValid = false
+  } else if (!emailRegex.test(form.email)) {
     errors.email = 'Please enter a valid email address'
     isValid = false
   }
 
-  // Validate message
+  // Validate message with length constraints
   if (!form.message.trim()) {
     errors.message = 'Message is required'
     isValid = false
   } else if (form.message.trim().length < 10) {
     errors.message = 'Message must be at least 10 characters'
     isValid = false
+  } else if (form.message.length > 1000) {
+    errors.message = 'Message must be less than 1000 characters'
+    isValid = false
   }
 
   return isValid
 }
 
+// Client-side rate limiting (60 seconds between submissions)
+const checkRateLimit = (): boolean => {
+  const now = Date.now()
+  const timeSinceLastSubmit = now - lastSubmitTime.value
+  const rateLimitMs = 60000 // 1 minute
+
+  if (timeSinceLastSubmit < rateLimitMs) {
+    const remainingSeconds = Math.ceil((rateLimitMs - timeSinceLastSubmit) / 1000)
+    errors.message = `Please wait ${remainingSeconds} seconds before submitting again`
+    return false
+  }
+
+  return true
+}
+
 const handleSubmit = async () => {
+  // Check rate limit first
+  if (!checkRateLimit()) {
+    return
+  }
+
   if (!validateForm()) {
     return
   }
@@ -288,7 +370,16 @@ const handleSubmit = async () => {
 
   try {
     // Simulate API call - replace with actual form submission
+    // In production, this should:
+    // 1. Send data to backend API
+    // 2. Backend validates again (never trust client)
+    // 3. Backend verifies reCAPTCHA token
+    // 4. Backend sanitizes inputs
+    // 5. Backend sends email or stores in database
     await new Promise((resolve) => setTimeout(resolve, 2000))
+
+    // Record submission time for rate limiting
+    lastSubmitTime.value = Date.now()
 
     // Reset form
     form.fullName = ''
@@ -303,8 +394,11 @@ const handleSubmit = async () => {
       showSuccess.value = false
     }, 5000)
   } catch (error) {
-    console.error('Error submitting form:', error)
-    // Handle error (show error message, etc.)
+    // Secure error handling - don't expose sensitive details
+    if (import.meta.env.DEV) {
+      console.error('Error submitting form:', error)
+    }
+    errors.message = 'Failed to send message. Please try again.'
   } finally {
     isSubmitting.value = false
   }

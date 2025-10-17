@@ -12,7 +12,9 @@
     
     <!-- Project Icon -->
     <div class="relative flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-2xl mb-6 group-hover:scale-110 transition-all duration-300">
-      <div v-html="project.icon" class="w-10 h-10 text-blue-600 dark:text-blue-400 group-hover:rotate-12 transition-transform duration-300"></div>
+      <svg class="w-10 h-10 text-blue-600 dark:text-blue-400 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="project.iconPath" />
+      </svg>
     </div>
 
     <!-- Project Title -->

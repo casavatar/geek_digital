@@ -80,8 +80,8 @@
               'group-hover:rotate-3 group-hover:scale-110',
               report.iconBg
             ]">
-              <svg :class="['w-7 h-7', report.iconColor]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                v-html="report.icon">
+              <svg :class="['w-7 h-7', report.iconColor]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="report.iconPath" />
               </svg>
             </div>
 
@@ -157,7 +157,7 @@ interface Report {
   description: string
   lastUpdated: string
   status: 'Active' | 'Pending' | 'Error' | 'Scheduled'
-  icon: string
+  iconPath: string
   iconBg: string
   iconColor: string
   statusClass: string
@@ -174,7 +174,7 @@ const reports = ref<Report[]>([
     description: 'Comprehensive monthly sales analysis with trends and forecasts',
     lastUpdated: '2 hours ago',
     status: 'Active',
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />',
+    iconPath: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
     iconBg: 'bg-blue-100/80 dark:bg-blue-900/40',
     iconColor: 'text-blue-600 dark:text-blue-400',
     statusClass: 'bg-green-100/80 dark:bg-green-900/40 text-green-800 dark:text-green-400 border-green-200/50 dark:border-green-800/50'
@@ -185,7 +185,7 @@ const reports = ref<Report[]>([
     description: 'Detailed analysis of user behavior and engagement metrics',
     lastUpdated: '1 day ago',
     status: 'Pending',
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />',
+    iconPath: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z',
     iconBg: 'bg-purple-100/80 dark:bg-purple-900/40',
     iconColor: 'text-purple-600 dark:text-purple-400',
     statusClass: 'bg-yellow-100/80 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-400 border-yellow-200/50 dark:border-yellow-800/50'
@@ -196,7 +196,7 @@ const reports = ref<Report[]>([
     description: 'System performance and optimization recommendations',
     lastUpdated: '30 minutes ago',
     status: 'Active',
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />',
+    iconPath: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
     iconBg: 'bg-green-100/80 dark:bg-green-900/40',
     iconColor: 'text-green-600 dark:text-green-400',
     statusClass: 'bg-green-100/80 dark:bg-green-900/40 text-green-800 dark:text-green-400 border-green-200/50 dark:border-green-800/50'
@@ -207,7 +207,7 @@ const reports = ref<Report[]>([
     description: 'Quarterly financial performance and budget analysis',
     lastUpdated: '3 days ago',
     status: 'Error',
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />',
+    iconPath: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
     iconBg: 'bg-orange-100/80 dark:bg-orange-900/40',
     iconColor: 'text-orange-600 dark:text-orange-400',
     statusClass: 'bg-red-100/80 dark:bg-red-900/40 text-red-800 dark:text-red-400 border-red-200/50 dark:border-red-800/50'
@@ -218,7 +218,7 @@ const reports = ref<Report[]>([
     description: 'ROI analysis and campaign effectiveness metrics',
     lastUpdated: '1 hour ago',
     status: 'Active',
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />',
+    iconPath: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z',
     iconBg: 'bg-indigo-100/80 dark:bg-indigo-900/40',
     iconColor: 'text-indigo-600 dark:text-indigo-400',
     statusClass: 'bg-green-100/80 dark:bg-green-900/40 text-green-800 dark:text-green-400 border-green-200/50 dark:border-green-800/50'
@@ -229,7 +229,7 @@ const reports = ref<Report[]>([
     description: 'Customer feedback analysis and satisfaction trends',
     lastUpdated: 'Tomorrow',
     status: 'Scheduled',
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />',
+    iconPath: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
     iconBg: 'bg-pink-100/80 dark:bg-pink-900/40',
     iconColor: 'text-pink-600 dark:text-pink-400',
     statusClass: 'bg-blue-100/80 dark:bg-blue-900/40 text-blue-800 dark:text-blue-400 border-blue-200/50 dark:border-blue-800/50'
