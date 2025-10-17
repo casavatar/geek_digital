@@ -107,25 +107,25 @@ describe('useTheme', () => {
   it('should persist theme changes to localStorage', async () => {
     const wrapper = mount(TestComponent)
     await nextTick()
-    
-    const { toggleDarkMode } = wrapper.vm
+
+    const { toggleDarkMode } = wrapper.vm as any
     toggleDarkMode()
     await nextTick()
-    
+
     expect(localStorageMock.setItem).toHaveBeenCalledWith('theme', 'dark')
   })
 
   it('should not initialize twice', async () => {
     const wrapper = mount(TestComponent)
     await nextTick()
-    
-    const { initializeTheme } = wrapper.vm
+
+    const { initializeTheme } = wrapper.vm as any
     const initialCallCount = mockDocumentElement.classList.toggle.mock.calls.length
-    
+
     // Call initializeTheme again
     initializeTheme()
     await nextTick()
-    
+
     // Should not have made additional calls
     expect(mockDocumentElement.classList.toggle.mock.calls.length).toBe(initialCallCount)
   })

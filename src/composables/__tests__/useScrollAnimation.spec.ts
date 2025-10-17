@@ -204,15 +204,16 @@ describe('useScrollAnimation', () => {
   it('should handle elementRef changes', async () => {
     const wrapper = mount(TestComponent)
     await nextTick()
-    
-    const initialElement = wrapper.vm.elementRef
+
+    const vm = wrapper.vm as any
+    const initialElement = vm.elementRef
     expect(mockObserve).toHaveBeenCalledWith(initialElement)
-    
+
     // Simulate elementRef change
     const newElement = document.createElement('div')
-    wrapper.vm.elementRef.value = newElement
+    vm.elementRef.value = newElement
     await nextTick()
-    
+
     expect(mockUnobserve).toHaveBeenCalledWith(initialElement)
     expect(mockObserve).toHaveBeenCalledWith(newElement)
   })

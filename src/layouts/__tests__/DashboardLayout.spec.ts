@@ -66,10 +66,11 @@ describe('DashboardLayout', () => {
   beforeEach(async () => {
     await router.push('/');
     vi.mocked(useUiStore).mockReturnValue({
+      $id: 'ui',
       isMobileSidebarOpen: false,
       openMobileSidebar: vi.fn(),
       closeMobileSidebar: vi.fn(),
-    });
+    } as any);
   });
 
   const createWrapper = () => {
@@ -198,10 +199,11 @@ describe('DashboardLayout', () => {
     it('renders with liquidglass effect when open', () => {
       // Mock the uiStore to have the sidebar open for this test
       vi.mocked(useUiStore).mockReturnValue({
+        $id: 'ui',
         isMobileSidebarOpen: true,
         openMobileSidebar: vi.fn(),
         closeMobileSidebar: vi.fn()
-      })
+      } as any)
 
       const wrapper = createWrapper()
 
@@ -265,12 +267,13 @@ describe('DashboardLayout', () => {
 
   it('passes correct props to child components', () => {
     const wrapper = createWrapper()
-    
+
     // Check that personalInfo is available in the component
     // Note: personalInfo comes from usePortfolioData composable
     // The composable should be available in the component
-    expect(wrapper.vm.personalInfo).toBeDefined()
-    expect(wrapper.vm.personalInfo).toBeTruthy()
+    const vm = wrapper.vm as any
+    expect(vm.personalInfo).toBeDefined()
+    expect(vm.personalInfo).toBeTruthy()
   })
 
   it('handles router navigation correctly', async () => {
