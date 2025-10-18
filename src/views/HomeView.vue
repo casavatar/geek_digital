@@ -11,13 +11,14 @@ const { personalInfo } = usePortfolioData()
 <template>
   <div class="space-y-16 py-8">
     <!-- Welcome Header -->
-    <!-- Welcome Header -->
-    <div class="py-6 px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+    <div class="w-full flex items-center justify-center py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl w-full mx-auto text-center space-y-4">
+        <h1
+          class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight">
           {{ $t('home.title') }}
         </h1>
-        <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mt-2 font-medium">
+        <p
+          class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
           {{ $t('home.subtitle') }}
         </p>
       </div>
