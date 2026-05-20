@@ -9,6 +9,7 @@
 ### Core Application Structure
 
 A fully functional Vue 3 application with:
+
 - **7 Routes**: Home, Catalog, Portfolio, Shop, Login, Dashboard, 404
 - **3 Pinia Stores**: Authentication, Shopping Cart, User Management
 - **3 Services**: Firebase Auth, Payment Processing (Stripe/PayPal), Firebase Config
@@ -48,7 +49,7 @@ A fully functional Vue 3 application with:
 
 ### Technology Stack
 
-```
+```text
 Frontend:
 ├── Vue 3 (Composition API)
 ├── Vite (Build tool)
@@ -94,17 +95,21 @@ Located in `/src/docs/`:
 ## Quick Start
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Set up environment variables:**
+
    ```bash
    cp .env.example .env
    ```
+
    Edit `.env` with your Firebase, Stripe, and PayPal credentials
 
 3. **Run development server:**
+
    ```bash
    npm run dev
    ```
@@ -113,7 +118,7 @@ Located in `/src/docs/`:
 
 ## Project Structure
 
-```
+```text
 geek_digital/
 ├── src/
 │   ├── assets/
@@ -181,6 +186,7 @@ geek_digital/
 ### For Understanding the Codebase
 
 Start with these files in order:
+
 1. `/src/context/README.md` - Documentation navigation
 2. `/src/context/PROJECT_CONTEXT.md` - Big picture
 3. `/src/context/ARCHITECTURE.md` - System design
@@ -202,6 +208,7 @@ Start with these files in order:
 ## Configuration Required
 
 To use in production, configure:
+
 - Firebase/Supabase credentials (`.env`)
 - Stripe public key (`.env`)
 - PayPal client ID (`.env`)

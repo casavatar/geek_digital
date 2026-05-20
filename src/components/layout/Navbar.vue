@@ -1,13 +1,13 @@
 <template>
-  <nav class="bg-white shadow-sm border-b border-gray-200">
+  <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-colors">
     <div class="container-custom">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <router-link to="/" class="flex items-center space-x-2">
-          <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
+          <div class="w-8 h-8 bg-primary-600 dark:bg-primary-500 rounded-lg flex items-center justify-center">
             <span class="text-white font-bold text-lg">G</span>
           </div>
-          <span class="text-xl font-bold text-gray-900">GeekDigital</span>
+          <span class="text-xl font-bold text-gray-900 dark:text-gray-100">GeekDigital</span>
         </router-link>
 
         <!-- Desktop Navigation -->
@@ -44,10 +44,48 @@
 
         <!-- Right side buttons -->
         <div class="flex items-center space-x-4">
+          <!-- Theme Toggle -->
+          <button
+            @click="themeStore.toggleTheme"
+            class="p-2 text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors"
+            :title="themeStore.isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+          >
+            <!-- Sun icon (shown in dark mode) -->
+            <svg
+              v-if="themeStore.isDark"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+            <!-- Moon icon (shown in light mode) -->
+            <svg
+              v-else
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          </button>
+
           <!-- Cart -->
           <button
             @click="$router.push('/shop')"
-            class="relative p-2 text-gray-600 hover:text-primary-600"
+            class="relative p-2 text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -64,9 +102,9 @@
           <div v-if="authStore.isAuthenticated" class="relative">
             <button
               @click="toggleUserMenu"
-              class="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100"
+              class="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
-              <div class="w-8 h-8 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center font-semibold">
+              <div class="w-8 h-8 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 rounded-full flex items-center justify-center font-semibold">
                 {{ authStore.userName[0].toUpperCase() }}
               </div>
             </button>
@@ -74,18 +112,18 @@
             <!-- Dropdown -->
             <div
               v-if="showUserMenu"
-              class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50"
+              class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1 z-50"
             >
               <router-link
                 to="/dashboard"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 @click="showUserMenu = false"
               >
                 Dashboard
               </router-link>
               <button
                 @click="handleLogout"
-                class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                class="w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               >
                 Logout
               </button>
@@ -104,7 +142,7 @@
           <!-- Mobile menu button -->
           <button
             @click="toggleMobileMenu"
-            class="md:hidden p-2 text-gray-600"
+            class="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -114,7 +152,7 @@
       </div>
 
       <!-- Mobile menu -->
-      <div v-if="showMobileMenu" class="md:hidden py-4 border-t border-gray-200">
+      <div v-if="showMobileMenu" class="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
         <router-link to="/" class="mobile-nav-link" @click="showMobileMenu = false">Home</router-link>
         <router-link to="/catalog" class="mobile-nav-link" @click="showMobileMenu = false">Catalog</router-link>
         <router-link to="/portfolio" class="mobile-nav-link" @click="showMobileMenu = false">Portfolio</router-link>
@@ -129,10 +167,12 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/store/modules/auth'
 import { useCartStore } from '@/store/modules/cart'
+import { useThemeStore } from '@/store/modules/theme'
 
 const router = useRouter()
 const authStore = useAuthStore()
 const cartStore = useCartStore()
+const themeStore = useThemeStore()
 
 const showUserMenu = ref(false)
 const showMobileMenu = ref(false)
@@ -154,10 +194,10 @@ const handleLogout = async () => {
 
 <style scoped>
 .nav-link {
-  @apply text-gray-600 hover:text-primary-600 font-medium transition-colors;
+  @apply text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors;
 }
 
 .mobile-nav-link {
-  @apply block py-2 text-gray-600 hover:text-primary-600 font-medium;
+  @apply block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors;
 }
 </style>
