@@ -32,3 +32,10 @@ dist-ssr
 .firebase
 .firebaserc
 firebase-debug.log
+
+# Claude.ai
+CLAUDE.md
+.claude/*
+.agents/*
+
+
