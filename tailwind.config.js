@@ -4,120 +4,144 @@ export default {
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // Enable class-based dark mode
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        // Brand Colors - Primary (Blue)
+        // Electric Cyan — primary
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          50:  '#e0f9ff',
+          100: '#b3f0ff',
+          200: '#80e6ff',
+          300: '#4ddaff',
+          400: '#26cfff',
+          500: '#00c6ff',
+          600: '#00a8e0',
+          700: '#0086b3',
+          800: '#006687',
+          900: '#00445c',
         },
-        // Brand Colors - Secondary (Purple)
+        // Aurora Violet — secondary
         secondary: {
-          50: '#faf5ff',
-          100: '#f3e8ff',
-          200: '#e9d5ff',
-          300: '#d8b4fe',
-          400: '#c084fc',
-          500: '#a855f7',
-          600: '#9333ea',
-          700: '#7e22ce',
-          800: '#6b21a8',
-          900: '#581c87',
+          50:  '#f4efff',
+          100: '#e9dfff',
+          200: '#d4bfff',
+          300: '#be9fff',
+          400: '#a87fff',
+          500: '#9b5aff',
+          600: '#8040f0',
+          700: '#6630cc',
+          800: '#4e22a3',
+          900: '#381880',
         },
-        // Glass-specific colors for semi-transparent backgrounds
-        glass: {
-          light: {
-            primary: 'rgba(255, 255, 255, 0.8)',
-            secondary: 'rgba(255, 255, 255, 0.6)',
-            tertiary: 'rgba(255, 255, 255, 0.4)',
-          },
-          dark: {
-            primary: 'rgba(17, 24, 39, 0.8)',
-            secondary: 'rgba(31, 41, 55, 0.8)',
-            tertiary: 'rgba(55, 65, 81, 0.7)',
-          },
+        // Ember Gold — accent
+        accent: {
+          50:  '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b',
+          600: '#d97706',
+          700: '#b45309',
+        },
+        // Deep Surface — dark backgrounds
+        surface: {
+          50:  '#f8fafc',
+          100: '#f0f4f8',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#1e2d45',
+          800: '#0f1b2d',
+          900: '#08101e',
+          950: '#04070f',
         },
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        mono: ['Fira Code', 'Courier New', 'monospace'],
+        display: ['Space Grotesk', 'Inter', 'sans-serif'],
+        sans:    ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        mono:    ['Fira Code', 'Courier New', 'monospace'],
       },
       fontSize: {
-        'xs': ['0.75rem', { lineHeight: '1rem' }],
-        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
-        'base': ['1rem', { lineHeight: '1.5rem' }],
-        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
-        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
-        '2xl': ['1.5rem', { lineHeight: '2rem' }],
-        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
-        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-        '5xl': ['3rem', { lineHeight: '1' }],
-        '6xl': ['3.75rem', { lineHeight: '1' }],
-      },
-      spacing: {
-        '0': '0',
-        '1': '0.25rem',    // 4px
-        '2': '0.5rem',     // 8px
-        '3': '0.75rem',    // 12px
-        '4': '1rem',       // 16px
-        '5': '1.25rem',    // 20px
-        '6': '1.5rem',     // 24px
-        '8': '2rem',       // 32px
-        '10': '2.5rem',    // 40px
-        '12': '3rem',      // 48px
-        '16': '4rem',      // 64px
-        '20': '5rem',      // 80px
-        '24': '6rem',      // 96px
+        'xs':   ['0.75rem',  { lineHeight: '1rem' }],
+        'sm':   ['0.875rem', { lineHeight: '1.25rem' }],
+        'base': ['1rem',     { lineHeight: '1.6rem' }],
+        'lg':   ['1.125rem', { lineHeight: '1.75rem' }],
+        'xl':   ['1.25rem',  { lineHeight: '1.75rem' }],
+        '2xl':  ['1.5rem',   { lineHeight: '2rem' }],
+        '3xl':  ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl':  ['2.25rem',  { lineHeight: '2.5rem' }],
+        '5xl':  ['3rem',     { lineHeight: '1.1' }],
+        '6xl':  ['3.75rem',  { lineHeight: '1.05' }],
+        '7xl':  ['4.5rem',   { lineHeight: '1' }],
       },
       borderRadius: {
-        'none': '0',
-        'sm': '0.375rem',   // 6px
-        'DEFAULT': '0.5rem', // 8px
-        'md': '0.5rem',     // 8px
-        'lg': '0.75rem',    // 12px
-        'xl': '1rem',       // 16px
-        '2xl': '1.5rem',    // 24px
-        'full': '9999px',
+        'none':    '0',
+        'sm':      '0.375rem',
+        'DEFAULT': '0.5rem',
+        'md':      '0.625rem',
+        'lg':      '0.875rem',
+        'xl':      '1.25rem',
+        '2xl':     '1.75rem',
+        '3xl':     '2.5rem',
+        'full':    '9999px',
       },
       backdropBlur: {
         'none': '0',
-        'sm': '4px',
-        'DEFAULT': '8px',
-        'md': '8px',
-        'lg': '12px',
-        'xl': '16px',
-        '2xl': '24px',
-        '3xl': '32px',
+        'xs':   '2px',
+        'sm':   '6px',
+        DEFAULT:'12px',
+        'md':   '16px',
+        'lg':   '24px',
+        'xl':   '32px',
+        '2xl':  '48px',
+        '3xl':  '64px',
       },
       boxShadow: {
-        'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-        'DEFAULT': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)',
-        'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
-        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)',
-        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
-        '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-        // Dark mode shadows (deeper/stronger)
-        'dark-sm': '0 1px 2px 0 rgba(0, 0, 0, 0.3)',
-        'dark-md': '0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4)',
-        'dark-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.5)',
-        'dark-xl': '0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.6)',
+        'sm':  '0 1px 2px 0 rgba(0,0,0,0.12)',
+        DEFAULT: '0 2px 8px 0 rgba(0,0,0,0.18)',
+        'md':  '0 4px 16px -2px rgba(0,0,0,0.28)',
+        'lg':  '0 8px 24px -4px rgba(0,0,0,0.38)',
+        'xl':  '0 16px 40px -6px rgba(0,0,0,0.48)',
+        '2xl': '0 24px 64px -8px rgba(0,0,0,0.58)',
+        'glow-primary':   '0 0 20px rgba(0,198,255,0.35), 0 0 60px rgba(0,198,255,0.12)',
+        'glow-secondary': '0 0 20px rgba(155,90,255,0.35), 0 0 60px rgba(155,90,255,0.12)',
+        'glow-accent':    '0 0 20px rgba(245,158,11,0.35), 0 0 60px rgba(245,158,11,0.12)',
+        'glass':          '0 8px 32px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.06)',
+        'glass-hover':    '0 16px 48px rgba(0,0,0,0.52), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 0 1px rgba(0,198,255,0.14)',
       },
       transitionDuration: {
+        '150': '150ms',
         '200': '200ms',
         '300': '300ms',
+        '500': '500ms',
       },
       transitionTimingFunction: {
         'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'spring': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+      },
+      animation: {
+        'float':       'float 7s ease-in-out infinite',
+        'float-slow':  'float 11s ease-in-out infinite',
+        'pulse-glow':  'pulse-glow 3s ease-in-out infinite',
+        'shimmer':     'shimmer 2.5s linear infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%':       { transform: 'translateY(-10px)' },
+        },
+        'pulse-glow': {
+          '0%, 100%': { opacity: '0.6' },
+          '50%':       { opacity: '1' },
+        },
+        shimmer: {
+          '0%':   { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
       },
     },
   },
