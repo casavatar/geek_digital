@@ -8,14 +8,8 @@
 
         <!-- Brand -->
         <div class="md:col-span-1">
-          <div class="flex items-center gap-2.5 mb-4">
-            <div class="w-8 h-8 rounded-xl flex items-center justify-center"
-                 style="background: linear-gradient(135deg, #00c6ff 0%, #7c3aed 100%); box-shadow: 0 0 14px rgba(0,198,255,0.25)">
-              <span class="text-white font-display font-bold text-base leading-none">G</span>
-            </div>
-            <span class="font-display font-semibold" style="background: linear-gradient(135deg, #26cfff 0%, #be9fff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">
-              GeekDigital
-            </span>
+          <div class="mb-4">
+            <img :src="logoUrl" alt="GeekDigital" class="h-8 w-auto" />
           </div>
           <p class="text-sm leading-relaxed" style="color: var(--text-3)">
             Professional data engineering portfolio and curated digital products platform.
@@ -73,6 +67,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import logoUrl from '@/components/GeekDigital.webp'
 
 const currentYear = computed(() => new Date().getFullYear())
 

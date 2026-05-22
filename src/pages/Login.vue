@@ -10,10 +10,7 @@
       <div class="p-8">
         <!-- Logo + heading -->
         <div class="text-center mb-8">
-          <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
-               style="background: linear-gradient(135deg, #00c6ff 0%, #7c3aed 100%); box-shadow: 0 0 28px rgba(0,198,255,0.35)">
-            <span class="text-white font-display font-bold text-2xl leading-none">G</span>
-          </div>
+          <img :src="logoUrl" alt="GeekDigital" class="h-12 w-auto mx-auto mb-5" />
           <h1 class="text-2xl font-display font-bold mb-1" style="color: var(--text-1)">
             {{ activeTab === 'login' ? 'Welcome back' : 'Create account' }}
           </h1>
@@ -203,6 +200,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import logoUrl from '@/components/GeekDigital.webp'
 import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '@/store/modules/auth'
 

@@ -3,12 +3,12 @@
     <div class="glass-nav-container">
 
       <!-- Logo -->
-      <router-link to="/" class="flex items-center gap-2.5 group">
-        <div class="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110"
-             style="background: linear-gradient(135deg, #00c6ff 0%, #7c3aed 100%); box-shadow: 0 0 16px rgba(0,198,255,0.3)">
-          <span class="text-white font-display font-bold text-base leading-none">G</span>
-        </div>
-        <span class="glass-nav-brand hidden sm:block">GeekDigital</span>
+      <router-link to="/" class="flex items-center group">
+        <img
+          :src="logoUrl"
+          alt="GeekDigital"
+          class="h-8 w-auto transition-all duration-300 group-hover:scale-105"
+        />
       </router-link>
 
       <!-- Desktop Navigation -->
@@ -146,6 +146,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import logoUrl from '@/components/GeekDigital.webp'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '@/store/modules/auth'
 import { useCartStore } from '@/store/modules/cart'
