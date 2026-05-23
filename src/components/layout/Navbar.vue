@@ -167,6 +167,7 @@ const navLinks = [
   { to: '/catalog',   label: 'Catalog' },
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/shop',      label: 'Shop' },
+  { to: '/blog',      label: 'Blog' },
 ]
 
 const isActive = (path) => {

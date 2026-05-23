@@ -344,9 +344,9 @@ jobs:
       - run: npm ci && npm run build
       - uses: amondnet/vercel-action@v25
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-token: \${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: \${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: \${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'</code></pre>
 <p>Separating CI and CD means you can re-trigger a production deployment for a hotfix without re-running the full test suite — saving 90 seconds when every second counts during an incident.</p>
 `,
