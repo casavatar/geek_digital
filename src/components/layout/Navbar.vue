@@ -7,7 +7,7 @@
         <img
           :src="logoUrl"
           alt="GeekDigital"
-          class="h-8 w-auto transition-all duration-300 group-hover:scale-105"
+          class="h-[62px] w-auto transition-all duration-300 group-hover:scale-105"
         />
       </router-link>
 

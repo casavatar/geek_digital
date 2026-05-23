@@ -40,6 +40,60 @@ const routes = [
           title: 'Dashboard - GeekDigital',
           requiresAuth: true
         }
+      },
+      {
+        path: 'docs',
+        name: 'Documentation',
+        component: () => import('@/pages/Documentation.vue'),
+        meta: { title: 'Documentation - GeekDigital' }
+      },
+      {
+        path: 'api-reference',
+        name: 'ApiReference',
+        component: () => import('@/pages/ApiReference.vue'),
+        meta: { title: 'API Reference - GeekDigital' }
+      },
+      {
+        path: 'support',
+        name: 'Support',
+        component: () => import('@/pages/Support.vue'),
+        meta: { title: 'Support - GeekDigital' }
+      },
+      {
+        path: 'blog',
+        name: 'Blog',
+        component: () => import('@/pages/Blog.vue'),
+        meta: { title: 'Blog - GeekDigital' }
+      },
+      {
+        path: 'blog/:slug',
+        name: 'BlogPost',
+        component: () => import('@/pages/BlogPost.vue'),
+        meta: { title: 'Article - GeekDigital' }
+      },
+      {
+        path: 'privacy-policy',
+        name: 'PrivacyPolicy',
+        component: () => import('@/pages/PrivacyPolicy.vue'),
+        meta: { title: 'Privacy Policy - GeekDigital' }
+      },
+      {
+        path: 'terms-of-service',
+        name: 'TermsOfService',
+        component: () => import('@/pages/TermsOfService.vue'),
+        meta: { title: 'Terms of Service - GeekDigital' }
+      },
+      {
+        path: 'cookie-policy',
+        name: 'CookiePolicy',
+        component: () => import('@/pages/CookiePolicy.vue'),
+        meta: { title: 'Cookie Policy - GeekDigital' }
+      },
+      {
+        path: 'refund-policy',
+        name: 'RefundPolicy',
+        component: () => import('@/pages/RefundPolicy.vue'),
+        meta: { title: 'Refund Policy - GeekDigital' }
       }
     ]
   },

@@ -10,7 +10,7 @@
       <div class="p-8">
         <!-- Logo + heading -->
         <div class="text-center mb-8">
-          <img :src="logoUrl" alt="GeekDigital" class="h-12 w-auto mx-auto mb-5" />
+          <img :src="logoUrl" alt="GeekDigital" class="h-[94px] w-auto mx-auto mb-5" />
           <h1 class="text-2xl font-display font-bold mb-1" style="color: var(--text-1)">
             {{ activeTab === 'login' ? 'Welcome back' : 'Create account' }}
           </h1>
