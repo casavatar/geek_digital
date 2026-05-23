@@ -14,7 +14,7 @@
       <!-- Desktop Navigation -->
       <div class="hidden md:flex glass-nav-links">
         <router-link
-          v-for="link in navLinks"
+          v-for="link in allNavLinks"
           :key="link.to"
           :to="link.to"
           :class="['glass-nav-link', isActive(link.to) && 'glass-nav-link-active']"
@@ -131,7 +131,7 @@
         style="border-top: 1px solid var(--glass-border)"
       >
         <router-link
-          v-for="link in navLinks"
+          v-for="link in allNavLinks"
           :key="link.to"
           :to="link.to"
           :class="['block px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200', isActive(link.to) ? 'glass-nav-link-active' : 'glass-nav-link']"
@@ -145,18 +145,20 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import logoUrl from '@/components/GeekDigital.webp'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '@/store/modules/auth'
 import { useCartStore } from '@/store/modules/cart'
 import { useThemeStore } from '@/store/modules/theme'
+import { useAdminStore } from '@/store/modules/admin'
 
 const route  = useRoute()
 const router = useRouter()
 const authStore  = useAuthStore()
 const cartStore  = useCartStore()
 const themeStore = useThemeStore()
+const adminStore = useAdminStore()
 
 const showUserMenu   = ref(false)
 const showMobileMenu = ref(false)
@@ -169,6 +171,16 @@ const navLinks = [
   { to: '/shop',      label: 'Shop' },
   { to: '/blog',      label: 'Blog' },
 ]
+
+const isAdminUser = computed(() => {
+  const u = adminStore.getUserByEmail(authStore.userEmail)
+  return u?.role === 'admin'
+})
+
+const allNavLinks = computed(() => [
+  ...navLinks,
+  ...(isAdminUser.value ? [{ to: '/admin', label: 'Admin' }] : [])
+])
 
 const isActive = (path) => {
   if (path === '/') return route.path === '/'

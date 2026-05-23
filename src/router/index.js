@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '@/store/modules/auth'
+import { useAdminStore } from '@/store/modules/admin'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import AuthLayout from '@/layouts/AuthLayout.vue'
+import AdminLayout from '@/layouts/AdminLayout.vue'
 
 const routes = [
   {
@@ -113,6 +115,31 @@ const routes = [
     ]
   },
   {
+    path: '/admin',
+    component: AdminLayout,
+    meta: { requiresAuth: true, requiresAdmin: true },
+    children: [
+      {
+        path: '',
+        name: 'AdminOverview',
+        component: () => import('@/pages/admin/AdminOverview.vue'),
+        meta: { title: 'Overview - GeekDigital Admin', requiresAdmin: true }
+      },
+      {
+        path: 'users',
+        name: 'AdminUsers',
+        component: () => import('@/pages/admin/AdminUsers.vue'),
+        meta: { title: 'Users - GeekDigital Admin', requiresAdmin: true }
+      },
+      {
+        path: 'apps',
+        name: 'AdminApps',
+        component: () => import('@/pages/admin/AdminApps.vue'),
+        meta: { title: 'Applications - GeekDigital Admin', requiresAdmin: true }
+      },
+    ]
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/pages/NotFound.vue'),
@@ -136,18 +163,21 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
 
-  // Set page title
   document.title = to.meta.title || 'GeekDigital'
 
-  // Check if route requires authentication
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
     next({ name: 'Login', query: { redirect: to.fullPath } })
-  }
-  // Redirect authenticated users away from guest-only pages
-  else if (to.meta.guest && authStore.isAuthenticated) {
+  } else if (to.meta.requiresAdmin) {
+    const adminStore = useAdminStore()
+    const storeUser = adminStore.getUserByEmail(authStore.user?.email)
+    if (!storeUser || storeUser.role !== 'admin') {
+      next({ name: 'Dashboard' })
+    } else {
+      next()
+    }
+  } else if (to.meta.guest && authStore.isAuthenticated) {
     next({ name: 'Dashboard' })
-  }
-  else {
+  } else {
     next()
   }
 })
